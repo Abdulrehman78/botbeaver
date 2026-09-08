@@ -1,84 +1,68 @@
 import type { ReactElement } from "react";
 import Link from "next/link";
 
-const channels = [
+const outcomes = [
   {
     num: "01",
-    title: "Voice",
+    title: "Always-on lead capture",
     description:
-      "Humanoid voice agents that take the call, qualify the lead, and book the appointment.",
-    tags: "Inbound, outbound, IVR",
+      "Engages every visitor — nights, weekends, holidays — before they bounce to a competitor who does answer.",
   },
   {
     num: "02",
-    title: "Chat",
+    title: "Instant qualification",
     description:
-      "AI conversation that wins before your competitor picks up — on web, app, or widget.",
-    tags: "Web, in-app, live handoff",
+      "Screens visitors and callers with natural conversation so your team only talks to real opportunities.",
   },
   {
     num: "03",
-    title: "CRM",
+    title: "Automatic meeting booking",
     description:
-      "HubSpot, Salesforce, or yours — every lead, one record, updated in real time.",
-    tags: "HubSpot, Salesforce, custom",
+      "Syncs with Google Calendar or Calendly and confirms the appointment without a single email exchange.",
   },
   {
     num: "04",
-    title: "SMS & Social",
+    title: "CRM logging, no manual entry",
     description:
-      "Missed-call text-back, DMs, and follow-ups handled automatically, around the clock.",
-    tags: "SMS, WhatsApp, social DMs",
+      "Pushes recordings, transcripts, and details into Salesforce, HubSpot, or your industry platform.",
   },
 ];
 
 export default function Integrations(): ReactElement {
   return (
-    <section className="site-section bg-[#F4F7F4]">
+    <section className="site-section bg-white">
       <div className="site-wrap">
-        <div className="flex flex-col gap-4 border-b-2 border-[#0B3D38] pb-6 md:flex-row md:items-end md:justify-between">
+        <div className="flex flex-col gap-4 border-b border-line pb-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#C45E28]">
-              Channel directory
-            </p>
-            <h2 className="mt-2 font-display text-3xl font-bold text-[#0B3D38] sm:text-4xl">
-              True omni-channel communication
+            <p className="eyebrow-mark">Outcomes</p>
+            <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight text-sapphire sm:text-4xl">
+              Built, trained, and managed for you
             </h2>
           </div>
-          <p className="max-w-sm text-sm leading-relaxed text-text-dim">
-            Chat, voice, CRM and growth — all pointed at one job: don&apos;t let
-            the lead go quiet.
+          <p className="max-w-sm text-sm leading-relaxed text-slate-dark">
+            We talk about booked meetings, answered questions, and qualified
+            leads — not model names.
           </p>
         </div>
 
-        <ul>
-          {channels.map((c) => (
-            <li
-              key={c.num}
-              className="grid gap-2 border-b border-[#0B3D38]/15 py-6 md:grid-cols-[3.5rem_9rem_1fr] md:items-start md:gap-6"
-            >
-              <span className="font-mono text-sm font-bold text-[#C45E28]">
-                {c.num}
-              </span>
-              <h3 className="font-display text-xl font-bold text-[#0B3D38] md:text-2xl">
+        <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+          {outcomes.map((c) => (
+            <li key={c.num} className="bb-card">
+              <span className="font-mono text-sm font-semibold text-accent">{c.num}</span>
+              <h3 className="mt-3 font-display text-xl font-semibold text-sapphire md:text-[20px]">
                 {c.title}
               </h3>
-              <div>
-                <p className="text-sm leading-relaxed text-text-dim">{c.description}</p>
-                <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#0B3D38]/70">
-                  {c.tags}
-                </p>
-              </div>
+              <p className="mt-2 text-sm leading-relaxed text-slate-dark">{c.description}</p>
             </li>
           ))}
         </ul>
 
         <div className="mt-8">
           <Link
-            href="/crm"
-            className="inline-flex items-center bg-[#0B3D38] px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-white no-underline hover:bg-[#072E2A]"
+            href="/contact"
+            className="inline-flex items-center rounded-sm bg-sapphire px-5 py-2.5 text-[15px] font-semibold text-white no-underline hover:bg-sapphire-deep"
           >
-            See CRM integrations
+            Book a demo
           </Link>
         </div>
       </div>

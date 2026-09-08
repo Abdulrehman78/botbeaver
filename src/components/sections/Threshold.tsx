@@ -1,26 +1,66 @@
 import type { ReactElement } from "react";
-import FlagStripe from "@/components/ui/FlagStripe";
+import Link from "next/link";
+
+const jumps = [
+  {
+    num: "01",
+    href: "#chatbot",
+    title: "AI Sales Development Representative",
+    line: "Catches website visitors at the moment of highest intent.",
+  },
+  {
+    num: "02",
+    href: "#phone",
+    title: "AI Phone Receptionist",
+    line: "Answers instantly, qualifies the caller, and books live.",
+  },
+];
 
 export default function Threshold(): ReactElement {
   return (
-    <section className="bg-[#F4F7F4] site-offset">
-      <div className="h-2 bg-[#C45E28]" />
-      <div className="site-wrap pb-12 pt-10 md:pb-16 md:pt-12">
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#C45E28]">
-          Service catalog
+    <section className="relative overflow-hidden bg-sapphire-deep site-offset">
+      <div className="bb-hero-glow pointer-events-none absolute inset-0" aria-hidden />
+      <div className="dam-grid dam-grid--hero pointer-events-none absolute inset-0" aria-hidden />
+      <div className="site-wrap relative z-10 pb-14 pt-10 md:pb-20 md:pt-12">
+        <p className="eyebrow-mark mb-8 border-b border-white/15 pb-3 text-[#8FA3C4]">
+          Service offerings
         </p>
-        <div className="mt-3 grid gap-6 md:grid-cols-[1.2fr_0.8fr] md:items-end">
-          <h1 className="font-display text-4xl font-bold leading-tight text-[#0B3D38] md:text-5xl">
-            Fourteen rooms.
-            <span className="block text-[#0B3D38]/60">One workforce.</span>
-          </h1>
-          <p className="max-w-md text-base leading-relaxed text-text-dim">
-            Every service is built to run itself — chat, voice, CRM, and growth —
-            pointed at one job: don&apos;t let the lead go quiet.
-          </p>
+
+        <div className="grid min-w-0 items-end gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+          <div>
+            <h1 className="banner-heading text-[2rem] leading-[1.08] sm:text-5xl lg:text-[3.25rem]">
+              Two products.
+              <span className="block font-normal text-white/70">Inbound first.</span>
+              <span className="tooth-cursor" aria-hidden />
+            </h1>
+            <p className="mt-5 max-w-md text-base leading-relaxed text-white/80">
+              An AI sales chatbot for the website. An AI receptionist for the
+              phone. Together they close the after-hours gap — then outbound if
+              you want to go further.
+            </p>
+          </div>
+
+          <nav aria-label="Products" className="grid gap-3">
+            {jumps.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="bb-panel-dark group p-5 no-underline"
+              >
+                <p className="font-mono text-[11px] font-semibold tracking-[0.12em] text-accent">
+                  {item.num}
+                </p>
+                <h2 className="mt-2 font-display text-lg font-semibold tracking-tight text-white group-hover:text-accent">
+                  {item.title}
+                </h2>
+                <p className="mt-1.5 text-sm leading-relaxed text-[#8FA3C4]">
+                  {item.line}
+                </p>
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
-      <FlagStripe />
     </section>
   );
 }

@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
-import Locations from "@/components/sections/Locations";
 import CtaContact from "@/components/sections/CtaContact";
 
 export const metadata: Metadata = {
-  title: "Contact BotBeaver | Book a Demo",
+  title: "Book a demo",
   description:
-    "Get in touch with BotBeaver — book a demo, see where we work, and start your AI automation project.",
+    "Book a BotBeaver demo. We design, build, and maintain AI sales chatbots and phone receptionists — live in 14 days or your setup fee back.",
 };
 
 export default function ContactPage() {
-  return (
-    <>
-      <Locations />
-      <CtaContact />
-    </>
-  );
+  return <CtaContact />;
 }

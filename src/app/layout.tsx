@@ -3,24 +3,21 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import SiteScripts from "@/components/SiteScripts";
 
 export const metadata: Metadata = {
   title: {
-    default:
-      "BotBeaver | AI Automation Agency — AI Chatbots, Voice Agents & Business Automation",
+    default: "BotBeaver | Builds conversations that work",
     template: "%s | BotBeaver",
   },
   description:
-    "BotBeaver is an AI automation agency building AI chatbots, AI voice agents, business automation, CRM integration and digital transformation for companies across the US, UK, Canada, Australia and Europe.",
-  metadataBase: new URL("https://www.arqonnect.com"),
+    "AI-powered lead capture and client communication. Two products: an AI Sales Development Representative for your website, and an AI Phone Receptionist for inbound calls.",
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   colorScheme: "light",
-  themeColor: "#F4F7F4",
+  themeColor: "#F5F4F1",
 };
 
 export default function RootLayout({
@@ -38,7 +35,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;800;900&family=Source+Sans+3:wght@400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
       </head>
@@ -46,7 +43,6 @@ export default function RootLayout({
         <Nav />
         {children}
         <Footer />
-        <SiteScripts />
       </body>
     </html>
   );

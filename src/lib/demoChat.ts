@@ -1,19 +1,20 @@
 /** Shared knowledge + reply helpers for the hero demo chat */
 
-export const DEMO_SYSTEM_PROMPT = `You are Ava, BotBeaver's friendly demo AI assistant on the marketing site.
+export const DEMO_SYSTEM_PROMPT = `You are the BotBeaver demo agent on the marketing site.
 Answer helpfully, clearly, and briefly (2–4 sentences unless the user asks for detail).
-Stay in character as a product specialist for BotBeaver.
+Sound like a confident builder in plain English. Talk about outcomes (booked meetings, answered questions, qualified leads), not model names. Beaver wordplay at most once.
 
 About BotBeaver:
-- Builds humanoid AI chatbots and voice agents that answer calls/chats, qualify leads, and book appointments 24/7.
-- Full stack: chat, voice, CRM sync (HubSpot, Salesforce, or built-in), automation, SEO/AEO/GEO/AIO growth.
-- Serves healthcare, real estate, law, education, ecommerce, finance, SaaS — US, UK, Canada, Australia, Europe.
-- Typical go-live for first agent: about two weeks.
-- Pricing starts around $97/month for the flat stack (replacing many separate tools); exact pricing confirmed on a demo call.
-- CTA: offer to book a demo at /contact or /demo when relevant.
+- Tagline: Builds conversations that work.
+- Two core inbound products:
+  1) AI Sales Development Representative — website chatbot that qualifies visitors in conversation, screens poor fits, and books meetings to Google Calendar or Calendly. Responds in under 3 seconds. Live 24/7/365. Visitors who get an instant answer convert at 3–5× a contact form.
+  2) AI Phone Receptionist — answers instantly (no voicemail), qualifies the caller, books the appointment live on the call, logs recordings/transcripts to Salesforce/HubSpot/industry CRM, and routes true emergencies to an on-call human.
+- Outbound (prospecting + hyper-personalized outreach) is an add-on after inbound is working — not the first pitch.
+- Verticals: law firms, healthcare & clinics, e-commerce, retail, B2B agencies, real estate; phone also serves home services, property management, med-spa, logistics.
+- We design, build, and maintain the agent. Typical go-live: 14 days, or setup fee back.
+- CTA: book a demo at /contact. Do not invent a booked meeting.
 
-If asked something unrelated, answer briefly then steer back to how BotBeaver can help.
-Never invent private customer data. Do not claim you already booked a meeting — invite them to schedule.`;
+If asked something unrelated, answer briefly then steer back. Never invent private customer data.`;
 
 type KnowledgeHit = { keys: string[]; answer: string };
 
@@ -21,52 +22,52 @@ const KNOWLEDGE: KnowledgeHit[] = [
   {
     keys: ["price", "pricing", "cost", "how much", "$", "fee", "plan", "subscription"],
     answer:
-      "BotBeaver runs as a flat stack from about $97/month once you're set up — chat, voice, CRM wiring, and growth under one bill instead of stitching $1,600+ of separate tools. Exact pricing is confirmed on a short demo call.",
+      "We price after a short demo so it matches the product you actually need — website SDR, phone receptionist, or both. No credit card to start. Live in 14 days or your setup fee back.",
   },
   {
     keys: ["book", "demo", "meeting", "schedule", "calendar", "call me", "talk to"],
     answer:
-      "Happy to help you get on the calendar. You can book a same-week demo from the Book a Demo page — mornings and afternoons usually have openings. Want me to point you there?",
+      "Use the Book a demo page. We confirm fit and go-live from there — live in 14 days or your setup fee back.",
   },
   {
-    keys: ["voice", "phone", "call", "receptionist", "ivr"],
+    keys: ["voice", "phone", "call", "receptionist", "voicemail", "ivr"],
     answer:
-      "Our voice agents sound natural on live calls — not scripted IVR. They listen, answer questions, qualify, and book appointments 24/7. You can try the voice flow on the full demo page.",
+      "The AI Phone Receptionist answers instantly so nothing goes to voicemail. It qualifies the caller, books the appointment while they're on the line, logs the call to your CRM, and routes real emergencies to an on-call human.",
   },
   {
-    keys: ["chat", "chatbot", "message", "whatsapp", "sms", "dm"],
+    keys: ["chat", "chatbot", "sdr", "website", "visitor", "widget"],
     answer:
-      "Website chat (and WhatsApp, SMS, social DMs) run on the same agent memory — so a lead gets an instant human-like reply, gets qualified, and can book without waiting for your team.",
+      "The AI SDR lives on your site. It catches visitors in real conversation, screens poor fits, and books meetings to Google Calendar or Calendly — under 3 seconds, 24/7, no staffing cost.",
   },
   {
     keys: ["crm", "hubspot", "salesforce", "pipeline", "lead"],
     answer:
-      "Every call, chat, and booking can write straight into HubSpot, Salesforce, or BotBeaver's CRM — one record across channels, no spreadsheet handoffs.",
+      "Call recordings, transcripts, and caller details push into Salesforce, HubSpot, or your industry CRM when the conversation ends. Zero manual entry.",
   },
   {
-    keys: ["seo", "aeo", "geo", "aio", "rank", "search", "google"],
+    keys: ["outbound", "prospect", "outreach", "email blast", "cold"],
     answer:
-      "We combine SEO, AEO, GEO, and AIO so you show up in classic Google results and in AI answer surfaces like Perplexity and AI Overviews — not just one channel.",
+      "Automated prospecting and hyper-personalized outreach are add-ons once inbound is working. We start with the chatbot and phone receptionist — that's the pain most teams already feel.",
   },
   {
-    keys: ["who", "what is arq", "what do you", "company", "about"],
+    keys: ["who", "what is", "what do you", "company", "about", "botbeaver"],
     answer:
-      "BotBeaver builds AI employees — humanoid chat and voice agents plus CRM and growth — so every inbound lead gets answered and moved to a next step, any hour.",
+      "BotBeaver builds conversations that work. Two products: an AI sales chatbot for the website and an AI phone receptionist for inbound calls. We design, train, and maintain them for you.",
   },
   {
-    keys: ["how long", "timeline", "setup", "launch", "go live", "implement"],
+    keys: ["how long", "timeline", "setup", "launch", "go live", "implement", "14"],
     answer:
-      "Most clients go live with their first voice or chat agent in about two weeks. CRM and the rest of the stack roll out module by module after that.",
+      "Most clients go live in 14 days. If we miss that, your setup fee comes back.",
   },
   {
-    keys: ["industry", "healthcare", "real estate", "dental", "law", "ecommerce"],
+    keys: ["industry", "healthcare", "real estate", "dental", "law", "legal", "ecommerce", "retail", "clinic"],
     answer:
-      "We work with service businesses and growing teams — healthcare, real estate, law, education, ecommerce, finance, SaaS — with tone and flows tuned to each market.",
+      "Core verticals are law firms, healthcare and clinics, e-commerce, retail, B2B services, and real estate. The phone receptionist also fits home services, property management, and med-spa.",
   },
   {
     keys: ["hello", "hi ", "hey", "good morning", "good afternoon"],
     answer:
-      "Hey! I'm Ava, BotBeaver's demo assistant. Ask me anything about our agents, pricing, CRM, or how we'd fit your business — I'll answer straight.",
+      "Hi — I'm the BotBeaver demo agent. Ask about the website SDR, the phone receptionist, go-live, or whether we'd fit your industry.",
   },
 ];
 
@@ -82,7 +83,7 @@ function scoreHit(text: string, hit: KnowledgeHit): number {
 export function localDemoReply(userText: string, history: Array<{ role: string; content: string }> = []): string {
   const t = userText.toLowerCase().trim();
   if (!t) {
-    return "Go ahead and type a question — pricing, voice agents, CRM, timelines, whatever you need.";
+    return "Go ahead — pricing, the website SDR, the phone receptionist, or go-live timing.";
   }
 
   const scored = KNOWLEDGE.map((hit) => ({ hit, score: scoreHit(t, hit) }))
@@ -97,17 +98,13 @@ export function localDemoReply(userText: string, history: Array<{ role: string; 
     const base = scored[0].hit.answer;
     const askingHow = /\b(how|why|can you|could you|would you|explain)\b/.test(t);
     if (askingHow) {
-      return `${base} If you share a bit about your industry or channels (phone, web chat, WhatsApp), I can tailor that further.`;
+      return `${base} If you share your industry, I can map it to the chatbot, the phone line, or both.`;
     }
     return base;
   }
 
-  // Conversational fallback — still answers, not a dead "flagged for the team" only
   const priorUser = history.filter((m) => m.role === "user").length;
-  const opener =
-    priorUser > 2
-      ? "Got it."
-      : "Good question.";
+  const opener = priorUser > 2 ? "Got it." : "Good question.";
 
-  return `${opener} From what you asked — “${userText.slice(0, 120)}${userText.length > 120 ? "…" : ""}” — here's the short take: BotBeaver's agents can handle that kind of customer conversation on chat or voice, qualify the lead, and book a next step automatically. Tell me whether you care more about phone, website chat, or CRM sync and I'll go deeper — or book a live demo and we'll map it to your stack.`;
+  return `${opener} From what you asked — “${userText.slice(0, 120)}${userText.length > 120 ? "…" : ""}” — here's the short take: BotBeaver's agents handle that kind of conversation on chat or voice, qualify the lead, and book a next step. Tell me whether you care more about the website, the phone line, or CRM sync — or book a live demo and we'll map it to your stack.`;
 }

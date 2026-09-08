@@ -7,28 +7,16 @@ type Msg = { id: string; who: "user" | "bot" | "typing"; text: string };
 
 const SUGGESTIONS = [
   "What does BotBeaver do?",
-  "How much does it cost?",
   "Can it answer phone calls?",
   "How fast can we go live?",
+  "Which industries do you serve?",
 ];
 
 const WELCOME =
-  "Hi — I'm Ava. I can answer questions about BotBeaver's chat & voice agents, pricing, CRM, and how we'd fit your business. What should we cover?";
+  "Hi! I'm the BotBeaver demo agent. Want to see how I qualify a lead?";
 
 function uid() {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
-}
-
-function BotAvatar({ size = "md" }: { size?: "sm" | "md" }) {
-  const dim = size === "sm" ? "h-7 w-7 text-[10px]" : "h-10 w-10 text-sm";
-  return (
-    <span
-      className={`relative flex shrink-0 items-center justify-center rounded-full bg-[#0B3D38] font-bold text-white ${dim}`}
-    >
-      A
-      <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-[#C45E28]" />
-    </span>
-  );
 }
 
 function SendIcon() {
@@ -98,7 +86,7 @@ export default function HeroDemoChat({
       const data = (await res.json()) as { reply?: string };
       const reply =
         data.reply?.trim() ||
-        "I hit a snag answering that — try again, or book a demo and a specialist will go deeper.";
+        "I hit a snag answering that — try again, or book a demo and we'll go deeper.";
 
       setMessages((prev) => [
         ...prev.filter((m) => m.who !== "typing"),
@@ -121,55 +109,38 @@ export default function HeroDemoChat({
 
   return (
     <div className={className}>
-      <div className="relative flex h-80 flex-col overflow-hidden border border-white/25 bg-white sm:h-[28rem]">
-        <div className="relative shrink-0 border-b border-line bg-[#0B3D38] px-4 py-3.5">
-          <div className="relative flex items-center gap-3">
-            <BotAvatar />
-            <div className="min-w-0 flex-1">
-              <div className="flex items-center gap-2">
-                <h2 className="truncate text-[15px] font-semibold tracking-tight text-white">
-                  Ava
-                </h2>
-                <span className="rounded-none bg-[#C45E28] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
-                  AI
-                </span>
-              </div>
-              <p className="mt-0.5 flex items-center gap-1.5 text-[12px] text-white/75">
-                <span className="inline-flex h-1.5 w-1.5 rounded-full bg-[#2A9B8F]" />
-                Online · replies instantly
-              </p>
-            </div>
-          </div>
+      <div className="bb-shell relative flex h-80 flex-col sm:h-[28rem]">
+        <div className="relative z-10 shrink-0 border-b border-white/10 px-5 py-4">
+          <p className="flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-[0.08em] text-circuit">
+            <span className="inline-flex h-[7px] w-[7px] rounded-full bg-circuit" />
+            Online — responding in under 3s
+          </p>
         </div>
 
         <div
           ref={bodyRef}
-          className="relative min-h-0 flex-1 space-y-4 overflow-y-auto bg-[#F4F7F4] px-3.5 py-3 sm:px-4"
+          className="relative z-10 min-h-0 flex-1 space-y-3 overflow-y-auto px-5 pb-3"
         >
           {messages.map((m) => {
             if (m.who === "typing") {
               return (
-                <div key={m.id} className="flex items-end gap-2">
-                  <BotAvatar size="sm" />
-                  <div className="rounded-none border border-line bg-white px-4 py-3 text-sm text-text-dim">
-                    Typing…
-                  </div>
+                <div
+                  key={m.id}
+                  className="max-w-[82%] self-start rounded-[14px] rounded-bl-[4px] bg-white/[0.09] px-[15px] py-[11px] text-sm text-[#E7ECF5]"
+                >
+                  Typing…
                 </div>
               );
             }
 
             const mine = m.who === "user";
             return (
-              <div
-                key={m.id}
-                className={`flex items-end gap-2 ${mine ? "flex-row-reverse" : ""}`}
-              >
-                {!mine && <BotAvatar size="sm" />}
+              <div key={m.id} className={`flex ${mine ? "justify-end" : "justify-start"}`}>
                 <div
-                  className={`max-w-[78%] px-3.5 py-2.5 text-[13px] leading-relaxed sm:max-w-[70%] sm:text-sm ${
+                  className={`max-w-[82%] px-[15px] py-[11px] text-[14px] leading-relaxed ${
                     mine
-                      ? "rounded-none bg-[#C45E28] text-white"
-                      : "rounded-none border border-line bg-white text-text"
+                      ? "rounded-[14px] rounded-br-[4px] bg-accent text-white"
+                      : "rounded-[14px] rounded-bl-[4px] bg-white/[0.09] text-[#E7ECF5]"
                   }`}
                 >
                   {m.text}
@@ -179,13 +150,13 @@ export default function HeroDemoChat({
           })}
 
           {showSuggestions && (
-            <div className="flex flex-wrap gap-2 pt-1 pl-9">
+            <div className="flex flex-wrap gap-2 pt-1">
               {SUGGESTIONS.map((s) => (
                 <button
                   key={s}
                   type="button"
                   onClick={() => send(s)}
-                  className="rounded-none border border-line bg-white px-3 py-1.5 text-left text-[11px] text-text hover:border-[#0B3D38] hover:text-[#0B3D38]"
+                  className="rounded-sm border border-white/15 bg-white/[0.06] px-3 py-1.5 text-left text-[12px] text-[#E7ECF5] hover:border-accent hover:text-white"
                 >
                   {s}
                 </button>
@@ -194,9 +165,9 @@ export default function HeroDemoChat({
           )}
         </div>
 
-        <div className="relative shrink-0 border-t border-line bg-white p-3">
+        <div className="relative z-10 shrink-0 p-4">
           <form
-            className="flex items-center gap-2 border border-line bg-white p-1.5 pl-3.5"
+            className="flex items-center gap-2 rounded-sm border border-white/15 bg-white/[0.06] p-1.5 pl-3.5"
             onSubmit={(e) => {
               e.preventDefault();
               send(input);
@@ -207,27 +178,23 @@ export default function HeroDemoChat({
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Message Ava…"
+              placeholder="Message the demo agent…"
               disabled={busy}
-              className="min-w-0 flex-1 bg-transparent py-2.5 text-sm text-text outline-none placeholder:text-text-dimmer disabled:opacity-60"
+              className="min-w-0 flex-1 bg-transparent py-2.5 text-sm text-[#E7ECF5] outline-none placeholder:text-[#8FA3C4] disabled:opacity-60"
             />
             <button
               type="submit"
               disabled={busy || !input.trim()}
               aria-label="Send message"
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-none bg-[#C45E28] text-white hover:bg-[#9A4318] disabled:cursor-not-allowed disabled:bg-text/10 disabled:text-text/30"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-accent text-white hover:bg-accent-dim disabled:cursor-not-allowed disabled:bg-white/10 disabled:text-white/30"
             >
               <SendIcon />
             </button>
           </form>
-          <p className="mt-2.5 text-center text-[10px] tracking-wide text-text-dimmer">
+          <p className="mt-2.5 text-center font-mono text-[10px] tracking-wide text-[#8FA3C4]">
             Demo agent ·{" "}
-            <Link href="/contact" className="text-[#0B3D38] no-underline hover:underline">
-              Book a human demo
-            </Link>
-            {" · "}
-            <Link href="/demo" className="text-[#0B3D38] no-underline hover:underline">
-              Full demo
+            <Link href="/contact" className="text-accent no-underline hover:underline">
+              Book a demo
             </Link>
           </p>
         </div>
