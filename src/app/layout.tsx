@@ -14,6 +14,11 @@ export const metadata: Metadata = {
   },
   description:
     "BotBeaver builds and maintains AI chat and phone agents so US businesses answer questions, qualify leads, and book meetings after hours.",
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/logo.svg" }],
+    shortcut: ["/icon.svg"],
+  },
   openGraph: {
     title: `${SITE.name} | AI lead capture for US teams`,
     description:
@@ -21,12 +26,14 @@ export const metadata: Metadata = {
     url: SITE.url,
     siteName: SITE.name,
     type: "website",
+    images: [{ url: "/logo.svg", width: 64, height: 64, alt: SITE.name }],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: `${SITE.name} | AI lead capture for US teams`,
     description:
       "AI chat and phone agents built and maintained for US service businesses.",
+    images: ["/logo.svg"],
   },
   alternates: {
     canonical: SITE.url,
@@ -37,7 +44,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   colorScheme: "light",
-  themeColor: "#F5F4F1",
+  themeColor: "#F7F9F8",
 };
 
 export default function RootLayout({
@@ -55,10 +62,11 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" href="/logo.png" type="image/png" />
+        <link rel="icon" href="/icon.svg?v=1" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/logo.svg?v=1" />
       </head>
       <body className="relative bg-bg text-text">
         <Nav />

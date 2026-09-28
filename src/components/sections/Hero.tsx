@@ -9,7 +9,7 @@ export default function Hero(): React.ReactElement {
       <div className="bb-hero-glow pointer-events-none absolute inset-0" aria-hidden />
       <div className="dam-grid dam-grid--hero pointer-events-none absolute inset-0" aria-hidden />
       <div className="site-wrap relative z-10 pb-12 md:pb-16">
-        <p className="eyebrow-mark mb-8 border-b border-white/15 pb-3 text-[#8FA3C4]">
+        <p className="eyebrow-mark mb-8 border-b border-white/15 pb-3 text-[#A8C4C0]">
           {HERO.eyebrow}
         </p>
 
@@ -41,10 +41,10 @@ export default function Hero(): React.ReactElement {
                 {HERO.secondaryCta.label}
               </Link>
             </div>
-            <dl className="mt-10 grid grid-cols-3 gap-2 border-t border-white/15 pt-6 text-white sm:gap-4">
+            <dl className="mt-10 grid grid-cols-1 gap-4 border-t border-white/15 pt-6 text-white sm:grid-cols-3 sm:gap-4">
               {HERO.stats.map((stat) => (
                 <div key={stat.label} className="min-w-0">
-                  <dt className="font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-[#8FA3C4]">
+                  <dt className="font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-[#A8C4C0]">
                     {stat.label}
                   </dt>
                   <dd className="mt-1 font-display text-sm font-semibold leading-snug sm:text-base">

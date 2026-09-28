@@ -16,7 +16,17 @@
 - https://botbeaver.com/pricing
 - https://botbeaver.com/faq
 - https://botbeaver.com/contact
+
+## Legal
+
 - https://botbeaver.com/legal/privacy
+- https://botbeaver.com/legal/terms
+- https://botbeaver.com/legal/cookies
+- https://botbeaver.com/legal/refund
+- https://botbeaver.com/legal/acceptable-use
+- https://botbeaver.com/legal/dpa
+- https://botbeaver.com/legal/data-deletion
+- https://botbeaver.com/legal/security
 
 ## Contact
 

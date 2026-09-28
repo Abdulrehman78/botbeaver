@@ -189,7 +189,53 @@ export const LEGAL_DOCS: LegalDoc[] = [
       { type: "h2", text: "9. Sub-processors" },
       {
         type: "p",
-        text: `We share the minimum personal information necessary with service providers that help us operate BotBeaver. Categories include cloud hosting and storage, email delivery, telephony and SMS carriers, AI model inference, CRM and calendar integrations, authentication, billing (Merchant of Record named on your invoice), and optional website analytics. A current named list is available on request at ${privacyEmail}. We notify customers before adding or replacing a sub-processor that materially changes how their data is handled, where contractually required.`,
+        text: `We share the minimum personal information necessary with service providers that help us operate BotBeaver. A current named list is available on request at ${privacyEmail}. We notify customers before adding or replacing a sub-processor that materially changes how their data is handled, where contractually required.`,
+      },
+      {
+        type: "table",
+        headers: ["Category", "Typical use", "Data involved"],
+        rows: [
+          [
+            "Cloud hosting and storage",
+            "Application hosting, databases, object storage, backups",
+            "Account, conversation, and configuration data",
+          ],
+          [
+            "Email delivery",
+            "Transactional and support email",
+            "Name, email, message content",
+          ],
+          [
+            "Telephony and SMS carriers",
+            "Inbound/outbound voice and messaging when enabled",
+            "Caller ID, audio/transcripts, SMS content",
+          ],
+          [
+            "AI model inference",
+            "Generate agent replies from your approved knowledge",
+            "Conversation content and prompts you configure",
+          ],
+          [
+            "CRM and calendar integrations",
+            "Write leads and bookings to systems you connect",
+            "Contact fields and appointment data you authorize",
+          ],
+          [
+            "Authentication",
+            "Sign-in for customer dashboards when provisioned",
+            "User ID, email, session metadata",
+          ],
+          [
+            "Billing (Merchant of Record)",
+            "Invoicing and payment processing",
+            "Billing contact and payment metadata (card PAN not stored by us)",
+          ],
+          [
+            "Optional website analytics",
+            "Aggregated marketing-site traffic measurement",
+            "Device/browser signals; only if enabled and consented",
+          ],
+        ],
       },
       { type: "h2", text: "10. International transfers" },
       {
@@ -353,20 +399,32 @@ export const LEGAL_DOCS: LegalDoc[] = [
           ],
         ],
       },
-      { type: "h2", text: "3. Essential cookies" },
+      { type: "h2", text: "3. Essential cookies and storage" },
+      {
+        type: "table",
+        headers: ["Name", "Type", "Purpose", "Duration"],
+        rows: [
+          [
+            "bb-analytics-consent",
+            "localStorage",
+            "Stores whether you accepted or rejected optional analytics (granted or denied)",
+            "Until cleared by you or the browser",
+          ],
+        ],
+      },
       {
         type: "p",
-        text: "Essential cookies are always active because the marketing site cannot operate securely without them. They include session security, consent storage (for example remembering that you dismissed the cookie notice), and similar core functions.",
+        text: "Essential storage is always active because the marketing site needs it to remember your cookie preference and keep core pages working. Blocking it may cause the cookie banner to reappear on every visit.",
       },
       { type: "h2", text: "4. Analytics" },
       {
         type: "p",
-        text: "We load analytics scripts only when enabled for the environment and, in regions that require it, after you consent. If analytics are off, no non-essential measurement cookies are set.",
+        text: "We load analytics scripts only when enabled for the environment and after you choose Accept analytics (or an equivalent consent mechanism). If you choose Essential only, or if Global Privacy Control / Do Not Track signals are present, optional analytics stay off. If analytics are disabled in the environment, no non-essential measurement cookies are set.",
       },
       { type: "h2", text: "5. Your choices" },
       {
         type: "p",
-        text: "You can control cookies through your browser settings. Blocking essential cookies may break site features. For more about how we use personal data, see our Privacy Policy.",
+        text: "You can control cookies through your browser settings and clear localStorage to reset the banner. Blocking essential storage may break preference memory. For more about how we use personal data, see our Privacy Policy.",
       },
       { type: "h2", text: "6. Contact" },
       {

@@ -1,23 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS, SITE } from "@/lib/siteContent";
+import BrandLogo from "@/components/BrandLogo";
+import { NAV_LINKS } from "@/lib/siteContent";
 
 function isActivePath(pathname: string, href: string): boolean {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);
-}
-
-function Wordmark({ className = "text-white" }: { className?: string }) {
-  return (
-    <span className={`truncate font-display text-[18px] tracking-tight ${className}`}>
-      <span className="font-bold">Bot</span>
-      <span className="font-normal">Beaver</span>
-    </span>
-  );
 }
 
 export default function Nav() {
@@ -43,6 +34,15 @@ export default function Nav() {
     setMenuOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
   const contactActive = isActivePath(pathname, "/contact");
 
   return (
@@ -50,20 +50,21 @@ export default function Nav() {
       <div
         className={`border-b border-white/10 bg-sapphire text-white transition-shadow duration-200 ${
           scrolled
-            ? "shadow-[0_8px_28px_rgba(7,26,53,0.45)] backdrop-blur-md bg-sapphire/95"
+            ? "shadow-[0_8px_28px_rgba(18,60,66,0.45)] backdrop-blur-md bg-sapphire/95"
             : "shadow-none"
         }`}
       >
-        <div className="site-wrap grid grid-cols-[1fr_auto] items-center gap-3 py-3 lg:grid-cols-[auto_1fr_auto]">
-          <Link href="/" className="flex min-w-0 items-center gap-2.5 no-underline">
-            <Image
-              src="/logo.png"
-              alt={SITE.name}
-              width={32}
-              height={32}
-              className="h-8 w-auto brightness-0 invert"
+        <div className="site-wrap grid h-14 grid-cols-[1fr_auto] items-center gap-3 sm:h-16 lg:grid-cols-[auto_1fr_auto]">
+          <Link
+            href="/"
+            className="flex min-w-0 max-w-[70%] items-center no-underline sm:max-w-none"
+            aria-label="BotBeaver home"
+          >
+            <BrandLogo
+              size="nav"
+              onDark
+              wordmarkClassName="text-white"
             />
-            <Wordmark />
           </Link>
 
           <nav className="hidden min-w-0 lg:flex lg:justify-center" aria-label="Main navigation">
@@ -75,13 +76,13 @@ export default function Nav() {
                     <Link
                       href={l.href}
                       aria-current={active ? "page" : undefined}
-                      className={`relative whitespace-nowrap px-3 py-2 text-[13px] font-medium tracking-wide no-underline ${
+                      className={`relative whitespace-nowrap rounded-md px-3 py-2 text-[13px] font-medium tracking-wide no-underline transition-colors ${
                         active ? "text-white" : "text-white/75 hover:text-white"
                       }`}
                     >
                       {l.label}
                       {active && (
-                        <span className="absolute inset-x-3 -bottom-0.5 h-0.5 bg-accent" />
+                        <span className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-accent" />
                       )}
                     </Link>
                   </li>
@@ -94,7 +95,7 @@ export default function Nav() {
             <Link
               href="/contact"
               aria-current={contactActive ? "page" : undefined}
-              className={`hidden items-center whitespace-nowrap rounded-sm px-[18px] py-2 text-[14px] font-semibold text-white no-underline sm:inline-flex ${
+              className={`hidden items-center whitespace-nowrap rounded-md px-[18px] py-2 text-[14px] font-semibold text-white no-underline transition-colors sm:inline-flex ${
                 contactActive ? "bg-accent-dim" : "bg-accent hover:bg-accent-dim"
               }`}
             >
@@ -103,9 +104,10 @@ export default function Nav() {
 
             <button
               type="button"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-sm border border-white/30 text-white lg:hidden"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/30 text-white transition-colors hover:bg-white/10 lg:hidden"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
+              aria-controls="bb-mobile-nav"
               onClick={() => setMenuOpen((o) => !o)}
             >
               {menuOpen ? (
@@ -123,8 +125,14 @@ export default function Nav() {
       </div>
 
       {menuOpen && (
-        <div className="max-h-[calc(100dvh-5.75rem)] overflow-y-auto border-b border-line bg-white lg:hidden">
-          <nav className="site-wrap py-4" aria-label="Mobile navigation">
+        <div
+          id="bb-mobile-nav"
+          className="max-h-[calc(100dvh-var(--header-h))] overflow-y-auto border-b border-line bg-white lg:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
+        >
+          <nav className="site-wrap py-4">
             <ul className="flex flex-col">
               {NAV_LINKS.map((l) => {
                 const active = isActivePath(pathname, l.href);
@@ -133,7 +141,7 @@ export default function Nav() {
                     <Link
                       href={l.href}
                       aria-current={active ? "page" : undefined}
-                      className={`block rounded-sm px-3 py-3 text-sm font-medium no-underline ${
+                      className={`block rounded-md px-3 py-3 text-sm font-medium no-underline transition-colors ${
                         active ? "bg-sapphire text-white" : "text-text hover:bg-birch"
                       }`}
                       onClick={() => setMenuOpen(false)}
@@ -146,7 +154,7 @@ export default function Nav() {
             </ul>
             <Link
               href="/contact"
-              className="mt-4 flex w-full items-center justify-center rounded-sm bg-accent px-5 py-3 text-[15px] font-semibold text-white no-underline hover:bg-accent-dim"
+              className="mt-4 flex w-full items-center justify-center rounded-md bg-accent px-5 py-3 text-[15px] font-semibold text-white no-underline transition-colors hover:bg-accent-dim"
               onClick={() => setMenuOpen(false)}
             >
               Book a demo
