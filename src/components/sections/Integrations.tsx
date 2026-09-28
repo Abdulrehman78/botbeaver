@@ -1,31 +1,42 @@
 import type { ReactElement } from "react";
 import Link from "next/link";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
+import {
+  IconCalendar,
+  IconClock,
+  IconCrm,
+  IconQualify,
+  LeadFlowStrip,
+} from "@/components/ui/ProductIcons";
 
 const outcomes = [
   {
     num: "01",
     title: "Always-on lead capture",
     description:
-      "Engages every visitor — nights, weekends, holidays — before they bounce to a competitor who does answer.",
+      "Engages every visitor on nights, weekends, and holidays before they leave for a competitor who answers.",
+    Icon: IconClock,
   },
   {
     num: "02",
     title: "Instant qualification",
     description:
       "Screens visitors and callers with natural conversation so your team only talks to real opportunities.",
+    Icon: IconQualify,
   },
   {
     num: "03",
     title: "Automatic meeting booking",
     description:
-      "Syncs with Google Calendar or Calendly and confirms the appointment without a single email exchange.",
+      "Syncs with Google Calendar or Calendly and confirms the appointment without a long email thread.",
+    Icon: IconCalendar,
   },
   {
     num: "04",
     title: "CRM logging, no manual entry",
     description:
       "Pushes recordings, transcripts, and details into Salesforce, HubSpot, or your industry platform.",
+    Icon: IconCrm,
   },
 ];
 
@@ -43,8 +54,11 @@ export default function Integrations(): ReactElement {
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-slate-dark">
               We talk about booked meetings, answered questions, and qualified
-              leads — not model names.
+              leads, not model names.
             </p>
+          </div>
+          <div className="mt-8">
+            <LeadFlowStrip />
           </div>
         </Reveal>
 
@@ -52,11 +66,18 @@ export default function Integrations(): ReactElement {
           {outcomes.map((c) => (
             <StaggerItem key={c.num}>
               <div className="bb-card bb-card-3d h-full">
-                <span className="font-mono text-sm font-semibold text-accent">{c.num}</span>
+                <div className="flex items-center justify-between gap-3">
+                  <span className="font-mono text-sm font-semibold text-accent">
+                    {c.num}
+                  </span>
+                  <c.Icon className="h-6 w-6 text-sapphire" />
+                </div>
                 <h3 className="mt-3 font-display text-xl font-semibold text-sapphire md:text-[20px]">
                   {c.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-dark">{c.description}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-dark">
+                  {c.description}
+                </p>
               </div>
             </StaggerItem>
           ))}

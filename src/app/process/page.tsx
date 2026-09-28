@@ -2,12 +2,32 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { HOW_IT_WORKS } from "@/lib/siteContent";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
+import {
+  IconCalendar,
+  IconChat,
+  IconClock,
+  IconCrm,
+  IconOutbound,
+  IconPhone,
+  IconQualify,
+  LeadFlowStrip,
+} from "@/components/ui/ProductIcons";
 
 export const metadata: Metadata = {
   title: "How it works",
   description:
     "How BotBeaver maps your lead leak, trains AI chat and phone agents on your approved knowledge, and targets go-live in about 14 days.",
 };
+
+const STEP_ICONS = [
+  IconQualify,
+  IconChat,
+  IconCrm,
+  IconPhone,
+  IconClock,
+  IconCalendar,
+  IconOutbound,
+];
 
 export default function ProcessPage() {
   return (
@@ -25,30 +45,37 @@ export default function ProcessPage() {
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/80">
             {HOW_IT_WORKS.lead}
           </p>
+          <div className="mt-10 rounded-sm border border-white/10 bg-white/5 p-5">
+            <LeadFlowStrip />
+          </div>
         </div>
       </section>
 
       <section className="site-section bg-birch">
         <Stagger className="site-wrap space-y-6">
-          {HOW_IT_WORKS.steps.map((step) => (
-            <StaggerItem key={step.num}>
-              <article
-                className="bb-card grid gap-4 p-6 sm:grid-cols-[4.5rem_1fr] sm:gap-8 sm:p-8"
-              >
-                <p className="font-mono text-sm font-semibold text-accent">
-                  {step.num}
-                </p>
-                <div>
-                  <h2 className="font-display text-xl font-semibold text-sapphire">
-                    {step.title}
-                  </h2>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-dark sm:text-[15px]">
-                    {step.body}
-                  </p>
-                </div>
-              </article>
-            </StaggerItem>
-          ))}
+          {HOW_IT_WORKS.steps.map((step, i) => {
+            const Icon = STEP_ICONS[i % STEP_ICONS.length];
+            return (
+              <StaggerItem key={step.num}>
+                <article className="bb-card bb-card-3d grid gap-4 p-6 sm:grid-cols-[4.5rem_1fr] sm:gap-8 sm:p-8">
+                  <div className="flex flex-col gap-3">
+                    <p className="font-mono text-sm font-semibold text-accent">
+                      {step.num}
+                    </p>
+                    <Icon className="h-7 w-7 text-sapphire" />
+                  </div>
+                  <div>
+                    <h2 className="font-display text-xl font-semibold text-sapphire">
+                      {step.title}
+                    </h2>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-dark sm:text-[15px]">
+                      {step.body}
+                    </p>
+                  </div>
+                </article>
+              </StaggerItem>
+            );
+          })}
         </Stagger>
         <Reveal className="site-wrap mt-10 flex flex-col gap-3 sm:flex-row">
           <Link

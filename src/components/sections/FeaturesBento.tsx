@@ -1,15 +1,21 @@
 import type { ReactElement } from "react";
 import Link from "next/link";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
+import {
+  IconChat,
+  IconPhone,
+  LeadFlowStrip,
+} from "@/components/ui/ProductIcons";
 
 const products = [
   {
     num: "01",
     title: "AI Sales Development Representative",
     description:
-      "Catches website visitors at the moment of highest intent — qualifies them in real conversation, books the meeting, and hands off only the right leads.",
+      "Catches website visitors at the moment of highest intent, qualifies them in real conversation, books the meeting, and hands off only the right leads.",
     tags: "Typically under 3s · Nights and weekends",
     href: "/services#chatbot",
+    Icon: IconChat,
   },
   {
     num: "02",
@@ -18,6 +24,7 @@ const products = [
       "Answers inbound calls, qualifies the caller, books the appointment, and routes real emergencies without dumping people into voicemail.",
     tags: "Fewer missed calls · Books on the call · CRM logging",
     href: "/services#phone",
+    Icon: IconPhone,
   },
 ];
 
@@ -37,6 +44,9 @@ export default function FeaturesBento(): ReactElement {
             calls. Your team still owns escalations and anything the agent
             should not answer.
           </p>
+          <div className="mt-8 rounded-sm border border-white/10 bg-white/5 p-4">
+            <LeadFlowStrip />
+          </div>
           <Link
             href="/process"
             className="mt-8 inline-flex items-center text-[15px] font-semibold text-accent no-underline hover:text-white"
@@ -52,9 +62,12 @@ export default function FeaturesBento(): ReactElement {
                 href={p.href}
                 className="bb-panel-dark bb-card-3d grid gap-2 p-5 no-underline sm:grid-cols-[4.5rem_1fr] sm:gap-6 sm:p-6"
               >
-                <span className="font-mono text-sm font-semibold tracking-wider text-accent">
-                  {p.num}
-                </span>
+                <div className="flex flex-col gap-2">
+                  <span className="font-mono text-sm font-semibold tracking-wider text-accent">
+                    {p.num}
+                  </span>
+                  <p.Icon className="h-7 w-7 text-circuit" />
+                </div>
                 <div>
                   <h3 className="font-display text-xl font-semibold tracking-tight">
                     {p.title}
