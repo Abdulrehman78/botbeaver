@@ -7,16 +7,14 @@ const nextConfig = {
     return [
       { source: "/crm", destination: "/services", permanent: true },
       { source: "/case-studies", destination: "/", permanent: true },
-      { source: "/pricing", destination: "/contact", permanent: true },
       { source: "/enterprise", destination: "/services", permanent: true },
-      { source: "/resources", destination: "/services", permanent: true },
-      { source: "/about", destination: "/", permanent: true },
-      { source: "/why", destination: "/", permanent: true },
-      { source: "/values", destination: "/", permanent: true },
-      { source: "/process", destination: "/", permanent: true },
-      { source: "/proof", destination: "/", permanent: true },
-      { source: "/see-it-work", destination: "/", permanent: true },
-      { source: "/demo", destination: "/", permanent: true },
+      { source: "/resources", destination: "/faq", permanent: true },
+      { source: "/about", destination: "/process", permanent: true },
+      { source: "/why", destination: "/process", permanent: true },
+      { source: "/values", destination: "/process", permanent: true },
+      { source: "/proof", destination: "/faq", permanent: true },
+      { source: "/see-it-work", destination: "/process", permanent: true },
+      { source: "/demo", destination: "/contact", permanent: true },
     ];
   },
 };

@@ -64,7 +64,7 @@
 }
 html {
   color-scheme: light only;
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
   overflow-x: hidden;
   overflow-y: scroll;
   -webkit-text-size-adjust: 100%;
@@ -145,8 +145,16 @@ a {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   .tooth-cursor {
     animation: none;
+  }
+  .bb-card:hover,
+  .bb-card-3d:hover,
+  .bb-panel-dark:hover {
+    transform: none;
   }
 }
 
@@ -217,6 +225,26 @@ a {
     background: linear-gradient(180deg, var(--bb-electric-pale) 0%, var(--bb-white) 2.85rem);
     border: 1px solid var(--bb-border);
     border-radius: 16px;
+    transition:
+      transform 200ms ease,
+      box-shadow 200ms ease,
+      border-color 200ms ease;
+  }
+  .bb-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(11, 36, 71, 0.1);
+  }
+  .bb-card-3d {
+    transform-style: preserve-3d;
+    perspective: 1200px;
+    transition:
+      transform 200ms ease,
+      box-shadow 200ms ease,
+      border-color 200ms ease;
+  }
+  .bb-card-3d:hover {
+    transform: translateY(-3px) rotateX(2deg);
+    box-shadow: 0 20px 44px rgba(11, 36, 71, 0.14);
   }
   .bb-card-quiet {
     position: relative;
@@ -274,9 +302,15 @@ a {
     );
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 16px;
-    transition: border-color 0.15s ease, background 0.15s ease;
+    transition:
+      transform 200ms ease,
+      box-shadow 200ms ease,
+      border-color 200ms ease,
+      background 200ms ease;
   }
   .bb-panel-dark:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(7, 26, 53, 0.35);
     border-color: rgba(31, 107, 255, 0.45);
   }
   .bb-statboard {

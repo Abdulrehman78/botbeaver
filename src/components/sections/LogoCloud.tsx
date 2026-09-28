@@ -1,4 +1,5 @@
 import type { ReactElement } from "react";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 
 const industries = [
   {
@@ -31,26 +32,30 @@ export default function LogoCloud(): ReactElement {
   return (
     <section className="site-section border-b border-line bg-birch">
       <div className="site-wrap">
-        <p className="eyebrow-mark">Vertical use cases</p>
-        <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold leading-tight tracking-tight text-sapphire sm:text-4xl">
-          Built for the firms that lose leads after hours
-        </h2>
-        <p className="mt-4 max-w-lg text-base leading-relaxed text-slate-dark">
-          Legal, healthcare, retail, e-commerce, and B2B. Same products. Trained
-          to the way your callers and visitors actually talk.
-        </p>
+        <Reveal>
+          <p className="eyebrow-mark">Vertical use cases</p>
+          <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold leading-tight tracking-tight text-sapphire sm:text-4xl">
+            Built for the firms that lose leads after hours
+          </h2>
+          <p className="mt-4 max-w-lg text-base leading-relaxed text-slate-dark">
+            Legal, healthcare, retail, e-commerce, and B2B. Same products. Trained
+            to the way your callers and visitors actually talk.
+          </p>
+        </Reveal>
 
-        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((item) => (
-            <article key={item.name} className="bb-card-quiet">
-              <h3 className="flex items-center gap-2.5 font-display text-[15px] font-semibold text-sapphire">
-                <span className="bb-mark" aria-hidden />
-                {item.name}
-              </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-dark">{item.line}</p>
-            </article>
+            <StaggerItem key={item.name}>
+              <article className="bb-card-quiet h-full">
+                <h3 className="flex items-center gap-2.5 font-display text-[15px] font-semibold text-sapphire">
+                  <span className="bb-mark" aria-hidden />
+                  {item.name}
+                </h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-slate-dark">{item.line}</p>
+              </article>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

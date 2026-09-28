@@ -1,0 +1,24 @@
+# BotBeaver
+
+> BotBeaver LLC builds and maintains AI chat and phone agents for US service businesses.
+
+## Product
+
+- AI Sales Development Representative for websites
+- AI Phone Receptionist for inbound calls
+- Optional outbound prospecting with consent controls
+
+## Key pages
+
+- https://botbeaver.com/
+- https://botbeaver.com/services
+- https://botbeaver.com/process
+- https://botbeaver.com/pricing
+- https://botbeaver.com/faq
+- https://botbeaver.com/contact
+- https://botbeaver.com/legal/privacy
+
+## Contact
+
+- hello@botbeaver.com
+- privacy@botbeaver.com

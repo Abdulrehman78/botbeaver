@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import { LEGAL_LINKS } from "@/lib/legalContent";
+import { PRODUCT_LINKS, SITE } from "@/lib/siteContent";
 
 export default function Footer() {
   return (
@@ -7,12 +9,12 @@ export default function Footer() {
       <div className="bb-hero-glow pointer-events-none absolute inset-0 opacity-40" aria-hidden />
       <div className="dam-grid dam-grid--fade pointer-events-none absolute inset-0" aria-hidden />
       <div className="site-wrap site-section relative z-10">
-        <div className="grid min-w-0 gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <div className="grid min-w-0 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div>
             <Link href="/" className="flex items-center gap-3 no-underline">
               <Image
                 src="/logo.png"
-                alt="BotBeaver"
+                alt={SITE.name}
                 width={32}
                 height={32}
                 className="h-8 w-auto brightness-0 invert"
@@ -23,9 +25,15 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-[#8FA3C4]">
-              We design, build, and maintain AI chat agents — so your website
-              answers questions, books meetings, and qualifies leads while you
-              sleep.
+              {SITE.footerBlurb}
+            </p>
+            <p className="mt-4 text-sm text-[#8FA3C4]">
+              <a
+                href={`mailto:${SITE.email}`}
+                className="text-[#8FA3C4] no-underline hover:text-white"
+              >
+                {SITE.email}
+              </a>
             </p>
           </div>
 
@@ -34,40 +42,62 @@ export default function Footer() {
               Products
             </h5>
             <div className="mt-4 flex flex-col gap-2.5">
-              <Link href="/services#chatbot" className="text-sm text-[#8FA3C4] no-underline hover:text-white">
-                AI Sales Development Representative
+              {PRODUCT_LINKS.map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="text-sm text-[#8FA3C4] no-underline hover:text-white"
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h5 className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-circuit">
+              Company
+            </h5>
+            <div className="mt-4 flex flex-col gap-2.5">
+              <Link href="/process" className="text-sm text-[#8FA3C4] no-underline hover:text-white">
+                How it works
               </Link>
-              <Link href="/services#phone" className="text-sm text-[#8FA3C4] no-underline hover:text-white">
-                AI Phone Receptionist
+              <Link href="/pricing" className="text-sm text-[#8FA3C4] no-underline hover:text-white">
+                Pricing
               </Link>
-              <Link href="/services#outbound" className="text-sm text-[#8FA3C4] no-underline hover:text-white">
-                Outbound prospecting &amp; outreach
+              <Link href="/faq" className="text-sm text-[#8FA3C4] no-underline hover:text-white">
+                FAQ
+              </Link>
+              <Link href="/contact" className="text-sm text-[#8FA3C4] no-underline hover:text-white">
+                Book a demo
               </Link>
             </div>
           </div>
 
           <div>
             <h5 className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-circuit">
-              Get started
+              Legal
             </h5>
-            <p className="mt-4 text-sm leading-relaxed text-[#8FA3C4]">
-              Live in 14 days or your setup fee back.
-            </p>
-            <Link
-              href="/contact"
-              className="mt-4 inline-flex items-center rounded-sm bg-accent px-[18px] py-2.5 text-[14px] font-semibold text-white no-underline hover:bg-accent-dim"
-            >
-              Book a demo
-            </Link>
+            <div className="mt-4 flex flex-col gap-2.5">
+              {LEGAL_LINKS.map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="text-sm text-[#8FA3C4] no-underline hover:text-white"
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
+        <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row sm:items-center">
           <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#8FA3C4]">
-            © 2026 BotBeaver LLC
+            © {new Date().getFullYear()} {SITE.legalName} · {SITE.location}
           </span>
           <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#8FA3C4]">
-            Builds conversations that work
+            {SITE.tagline}
           </span>
         </div>
       </div>

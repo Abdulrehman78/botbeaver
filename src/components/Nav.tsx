@@ -4,11 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Products" },
-];
+import { NAV_LINKS, SITE } from "@/lib/siteContent";
 
 function isActivePath(pathname: string, href: string): boolean {
   if (href === "/") return pathname === "/";
@@ -27,6 +23,14 @@ function Wordmark({ className = "text-white" }: { className?: string }) {
 export default function Nav() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -43,12 +47,18 @@ export default function Nav() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 overflow-x-hidden">
-      <div className="border-b border-white/10 bg-sapphire text-white">
+      <div
+        className={`border-b border-white/10 bg-sapphire text-white transition-shadow duration-200 ${
+          scrolled
+            ? "shadow-[0_8px_28px_rgba(7,26,53,0.45)] backdrop-blur-md bg-sapphire/95"
+            : "shadow-none"
+        }`}
+      >
         <div className="site-wrap grid grid-cols-[1fr_auto] items-center gap-3 py-3 lg:grid-cols-[auto_1fr_auto]">
           <Link href="/" className="flex min-w-0 items-center gap-2.5 no-underline">
             <Image
               src="/logo.png"
-              alt="BotBeaver"
+              alt={SITE.name}
               width={32}
               height={32}
               className="h-8 w-auto brightness-0 invert"
@@ -58,7 +68,7 @@ export default function Nav() {
 
           <nav className="hidden min-w-0 lg:flex lg:justify-center" aria-label="Main navigation">
             <ul className="flex flex-wrap items-center justify-center gap-0.5">
-              {links.map((l) => {
+              {NAV_LINKS.map((l) => {
                 const active = isActivePath(pathname, l.href);
                 return (
                   <li key={l.href} className="shrink-0">
@@ -116,7 +126,7 @@ export default function Nav() {
         <div className="max-h-[calc(100dvh-5.75rem)] overflow-y-auto border-b border-line bg-white lg:hidden">
           <nav className="site-wrap py-4" aria-label="Mobile navigation">
             <ul className="flex flex-col">
-              {links.map((l) => {
+              {NAV_LINKS.map((l) => {
                 const active = isActivePath(pathname, l.href);
                 return (
                   <li key={l.href}>

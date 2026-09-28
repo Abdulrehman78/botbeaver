@@ -79,7 +79,7 @@ const sdrOutcomes = [
   {
     icon: "trend" as const,
     title: "Higher conversion rate",
-    body: "Visitors who get an instant answer convert at 3–5× the rate of those sent to a contact form to wait for a callback.",
+    body: "Visitors who get an instant answer are more likely to book than those left waiting on a static contact form. Results vary by vertical and offer.",
   },
 ];
 
@@ -199,7 +199,7 @@ export default function ServicesStory(): ReactElement {
                   </p>
                 </div>
                 <div className="bb-panel-dark p-[18px]">
-                  <h4 className="font-display text-sm font-semibold text-[#E7ECF5]">Hyper-Personalized Outreach</h4>
+                  <h4 className="font-display text-sm font-semibold text-[#E7ECF5]">Consent-based personalized outreach</h4>
                   <p className="mt-1.5 text-[13px] leading-relaxed text-[#8FA3C4]">
                     Drafts tailored emails, texts, and social messages from
                     individual buyer data. Each one reads like it was written for
