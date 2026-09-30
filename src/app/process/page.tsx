@@ -8,7 +8,6 @@ import {
   IconClock,
   IconCrm,
   IconOutbound,
-  IconPhone,
   IconQualify,
   LeadFlowStrip,
 } from "@/components/ui/ProductIcons";
@@ -16,17 +15,16 @@ import {
 export const metadata: Metadata = {
   title: "How it works",
   description:
-    "How BotBeaver maps your lead leak, trains AI chat and phone agents on your approved knowledge, and targets go-live in about 14 days.",
+    "How BotBeaver maps your lead leak, trains AI chat agents on your approved knowledge, and targets go-live in about 14 days.",
 };
 
 const STEP_ICONS = [
   IconQualify,
   IconChat,
   IconCrm,
-  IconPhone,
+  IconOutbound,
   IconClock,
   IconCalendar,
-  IconOutbound,
 ];
 
 export default function ProcessPage() {

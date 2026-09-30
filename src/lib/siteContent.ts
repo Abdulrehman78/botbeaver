@@ -1,26 +1,29 @@
 /**
  * Canonical BotBeaver marketing-site copy and entity fields.
+ * Phone / AI calling is intentionally out of scope for now.
  */
+
+export const SHOW_PRICING_PLANS = false;
 
 export const SITE = {
   name: "BotBeaver",
   legalName: "BotBeaver LLC",
-  tagline: "AI lead capture and client communication for US teams",
-  email: "hello@botbeaver.com",
-  privacyEmail: "privacy@botbeaver.com",
+  tagline: "AI lead capture and growth for US teams",
+  /** Demo booking / sales inbox */
+  email: "abbasqureshi@botbeaver.ai",
+  privacyEmail: "privacy@botbeaver.ai",
   location: "United States",
   formationState: "Delaware",
   addressLine:
-    "United States — registered mailing address available on request at hello@botbeaver.com",
-  url: "https://botbeaver.com",
+    "United States — registered mailing address available on request at abbasqureshi@botbeaver.ai",
+  url: "https://botbeaver.ai",
   footerBlurb:
-    "BotBeaver designs, builds, and maintains AI chat and phone agents so US businesses answer questions, qualify leads, and book meetings after hours.",
+    "BotBeaver builds and maintains AI chat agents plus growth services (marketing, SEO, AEO, and more) so US businesses answer leads and show up where buyers search.",
 } as const;
 
 export const NAV_LINKS = [
   { href: "/process", label: "How it works" },
-  { href: "/services", label: "Products" },
-  { href: "/pricing", label: "Pricing" },
+  { href: "/services", label: "Services" },
   { href: "/faq", label: "FAQ" },
 ] as const;
 
@@ -30,12 +33,12 @@ export const PRODUCT_LINKS = [
     label: "AI Sales Development Representative",
   },
   {
-    href: "/services#phone",
-    label: "AI Phone Receptionist",
+    href: "/services#growth",
+    label: "Marketing, SEO & AEO",
   },
   {
     href: "/services#outbound",
-    label: "Outbound prospecting and outreach",
+    label: "Outbound prospecting (consent-based)",
   },
 ] as const;
 
@@ -43,8 +46,8 @@ export const HERO = {
   eyebrow: "BotBeaver for US service businesses",
   kicker: "01 · Product",
   title: "Catch every lead",
-  sub: "on the site and on the phone.",
-  body: "We build and maintain an AI Sales Development Representative for your website and an AI Phone Receptionist for inbound calls. Visitors get answers and booked meetings. Your team stays in control.",
+  sub: "on your website — and get found online.",
+  body: "We build and maintain an AI Sales Development Representative for your site, plus growth services like marketing, SEO, and AEO. Visitors get answers and booked meetings. Your team stays in control.",
   primaryCta: { href: "/contact", label: "Book a demo" },
   secondaryCta: { href: "/process", label: "How it works" },
   stats: [
@@ -73,6 +76,26 @@ export const STATS = [
   },
 ] as const;
 
+/** Growth / digital services (aligned with ArQonnect catalog; no voice/calling). */
+export const GROWTH_SERVICES = [
+  { title: "CRM", body: "Organize leads and conversations in one place your team can run day to day." },
+  { title: "Websites & funnels", body: "Landing pages and conversion paths wired to your AI chat and CRM." },
+  { title: "Webinar funnels", body: "Registration-to-follow-up flows that keep attendees moving toward a booked call." },
+  { title: "Chat widget / Conversation AI", body: "Site chat that qualifies, answers from approved knowledge, and books meetings." },
+  { title: "Inbound SMS & social DMs", body: "Capture and reply on messaging channels you already use (where integrated)." },
+  { title: "Social planner", body: "Plan and schedule posts so your brand stays visible without last-minute scramble." },
+  { title: "Ad manager", body: "Campaign structure and creative support so paid traffic lands somewhere that converts." },
+  { title: "SMM", body: "Social media management that supports the same offers your chat agent sells." },
+  { title: "SEO", body: "Classic search visibility so buyers find you on Google, not just when they already know your name." },
+  { title: "AEO", body: "Answer Engine Optimization — structure content so assistants can extract and read it aloud." },
+  { title: "GEO", body: "Generative Engine Optimization — earn citations inside AI answers (ChatGPT, Gemini, Perplexity, and similar)." },
+  { title: "AIO", body: "AI Overview readiness so you show up when search engines summarize the answer." },
+  { title: "AI business consultancy", body: "Practical advice on where AI should sit in your sales and ops stack." },
+  { title: "Technical writing", body: "Clear specs, help content, and knowledge base copy your agents can cite." },
+  { title: "AI web development", body: "Sites and apps built with AI-assisted delivery, connected to your chat and CRM." },
+  { title: "AI mobile development", body: "Native or hybrid apps when your offer needs a mobile surface." },
+] as const;
+
 export const HOW_IT_WORKS = {
   eyebrow: "How it works",
   title: "From discovery to a live agent in about two weeks",
@@ -81,11 +104,11 @@ export const HOW_IT_WORKS = {
     {
       num: "01",
       title: "Map the leak",
-      body: "We learn whether you lose leads on the website, on missed calls, or both, and which product should go live first.",
+      body: "We learn whether you lose leads on the website, in forms, or in follow-up — and which services should go live first.",
     },
     {
       num: "02",
-      title: "Approve voice and rules",
+      title: "Approve tone and rules",
       body: "You set tone, services, hours, qualification criteria, and topics that must escalate to a person.",
     },
     {
@@ -96,7 +119,7 @@ export const HOW_IT_WORKS = {
     {
       num: "04",
       title: "Connect channels",
-      body: "Website chat widget, phone number, and CRM fields you already use. Outbound email or SMS only after consent rules are clear.",
+      body: "Website chat widget and CRM fields you already use. Outbound email or SMS only after consent rules are clear.",
     },
     {
       num: "05",
@@ -108,58 +131,18 @@ export const HOW_IT_WORKS = {
 
 export const PRICING = {
   eyebrow: "Pricing",
-  title: "Scoped to your volume and channels",
-  lead: "Most engagements are custom quotes. The bands below are starting points for a demo conversation, not a self-serve checkout.",
-  note: "Final pricing depends on channels (web chat, phone, outbound), monthly conversation volume, CRM integrations, and whether you need regulated-industry controls. No credit card is required to book a demo.",
-  plans: [
-    {
-      name: "Inbound Chat",
-      price: "Custom",
-      period: "",
-      blurb: "AI Sales Development Representative on your website.",
-      features: [
-        "Site chat that qualifies and books meetings",
-        "Knowledge trained on your approved FAQs",
-        "Human handoff rules you control",
-        "CRM logging where we can connect",
-      ],
-      popular: false,
-    },
-    {
-      name: "Inbound Phone",
-      price: "Custom",
-      period: "",
-      blurb: "AI Phone Receptionist for missed and after-hours calls.",
-      features: [
-        "Answer, qualify, and book from the call",
-        "Transcripts and CRM notes",
-        "Escalation paths for emergencies",
-        "Recording and disclosure controls where required",
-      ],
-      popular: true,
-    },
-    {
-      name: "Chat + Phone",
-      price: "Custom",
-      period: "",
-      blurb: "Both inbound products under one engagement.",
-      features: [
-        "Shared qualification rules across channels",
-        "Priority go-live sequencing",
-        "Shared reporting for your team",
-        "14-day go-live target on the scoped setup",
-      ],
-      popular: false,
-    },
-  ],
+  title: "Custom quotes — no public plan cards",
+  lead: "We scope every engagement on a demo. Pricing depends on channels, volume, and which growth services you need.",
+  note: "No credit card is required to book a demo. We send a written quote after we understand your stack.",
+  plans: [] as const,
   addons: [
     {
-      name: "Outbound layer",
-      body: "Prospecting and personalized outreach by email, SMS, or social DM only with lawful consent and your approved lists.",
+      name: "Growth services",
+      body: "Marketing, SEO, AEO, GEO, funnels, and related work priced with the same engagement.",
     },
     {
       name: "Extra integrations",
-      body: "Additional CRM, calendar, or telephony wiring beyond the standard package.",
+      body: "Additional CRM, calendar, or messaging wiring beyond the standard package.",
     },
   ],
   guarantee:
@@ -172,7 +155,11 @@ export const FAQ = {
   items: [
     {
       q: "What does BotBeaver actually build?",
-      a: "An AI Sales Development Representative for your website and an AI Phone Receptionist for inbound calls. We also offer an outbound layer when you are ready. We build, train, and maintain the agents. You approve content and escalation rules.",
+      a: "An AI Sales Development Representative for your website, plus growth services such as marketing, SEO, AEO, GEO, funnels, and related digital work. We build, train, and maintain what we ship. You approve content and escalation rules.",
+    },
+    {
+      q: "Do you offer AI phone or calling agents?",
+      a: "Not right now. We focus on website chat and growth services. If voice becomes part of your roadmap later, we can discuss it separately.",
     },
     {
       q: "Will the agent invent answers?",
@@ -180,15 +167,15 @@ export const FAQ = {
     },
     {
       q: "How fast is go-live?",
-      a: "Most scoped inbound setups target about 14 days once we have your content and access. If we miss that target for reasons on our side, the setup fee refund rules in the Refund Policy apply.",
+      a: "Most scoped inbound chat setups target about 14 days once we have your content and access. If we miss that target for reasons on our side, the setup fee refund rules in the Refund Policy apply.",
     },
     {
       q: "Do you support healthcare or law firms?",
       a: "We serve those verticals with careful scoping. BotBeaver is not a substitute for licensed professional advice. Healthcare deployments that handle protected health information require a separate BAA and architecture review. Until that is signed, do not route PHI through the agent.",
     },
     {
-      q: "Are calls recorded?",
-      a: "Recording and transcription can be enabled where your use case needs them. You must obtain any consent required under state two-party consent laws and disclose AI use where required. We help you configure disclosures. You own compliance for your callers.",
+      q: "What is AEO vs SEO?",
+      a: "SEO helps you rank in classic search. AEO structures content so answer engines and assistants can extract it. GEO focuses on citations inside generative AI answers. We can run these together with your chat agent.",
     },
     {
       q: "Can you send outbound texts or emails?",
@@ -204,7 +191,7 @@ export const FAQ = {
 export const FINAL_CTA = {
   eyebrow: "Next step",
   title: "Book a scoped demo",
-  body: "Tell us whether the leak is website visitors, inbound calls, or both. We will recommend chat, phone, or both, and walk through go-live timing.",
+  body: "Tell us where leads leak or where you need to show up online. We will recommend chat, growth services, or both, and walk through go-live timing.",
   bullets: [
     "No credit card required",
     "Setup fee refundable if we miss the agreed 14-day go-live (see Refund Policy)",
@@ -215,4 +202,4 @@ export const FINAL_CTA = {
 } as const;
 
 export const COMPLIANCE_NOTE =
-  "BotBeaver agents are tools for your business. You are responsible for professional licensing rules, advertising rules, call recording consent, and messaging consent in your states. Healthcare PHI requires a BAA before processing.";
+  "BotBeaver agents are tools for your business. You are responsible for professional licensing rules, advertising rules, and messaging consent in your states. Healthcare PHI requires a BAA before processing.";

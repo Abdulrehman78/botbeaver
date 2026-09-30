@@ -3,9 +3,9 @@ import Threshold from "@/components/sections/Threshold";
 import ServicesStory from "@/components/sections/ServicesStory";
 
 export const metadata: Metadata = {
-  title: "Products — AI SDR & Phone Receptionist",
+  title: "Services — AI SDR, Marketing, SEO & AEO",
   description:
-    "BotBeaver's two inbound products: an AI Sales Development Representative for your website, and an AI Phone Receptionist that answers, qualifies, and books — 24/7.",
+    "BotBeaver's AI Sales Development Representative for your website, plus growth services: marketing, SEO, AEO, GEO, funnels, and more. No AI phone agents for now.",
 };
 
 export default function ServicesPage() {

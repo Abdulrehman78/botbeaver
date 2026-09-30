@@ -24,8 +24,23 @@ export default function CtaContact() {
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!consent) return;
-    // Marketing-only form: no CRM backend yet. Success means the browser
-    // accepted the request locally so the user knows what to expect next.
+    const fd = new FormData(e.currentTarget);
+    const name = String(fd.get("name") || "").trim();
+    const email = String(fd.get("email") || "").trim();
+    const company = String(fd.get("company") || "").trim();
+    const vertical = String(fd.get("vertical") || "").trim();
+    const product = String(fd.get("product") || "").trim();
+    const subject = encodeURIComponent(`BotBeaver demo — ${name || company || "inquiry"}`);
+    const body = encodeURIComponent(
+      [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Company: ${company || "—"}`,
+        `Vertical: ${vertical || "—"}`,
+        `Interest: ${product || "—"}`,
+      ].join("\n")
+    );
+    window.location.href = `mailto:${SITE.email}?subject=${subject}&body=${body}`;
     setSubmitted(true);
   }
 
@@ -41,13 +56,13 @@ export default function CtaContact() {
           <h1 className="banner-heading max-w-2xl text-[2rem] leading-[1.08] sm:text-5xl">
             Tell us where leads leak
             <span className="block font-normal text-white/70">
-              site, phone, or both.
+              site chat, growth, or both.
             </span>
             <span className="tooth-cursor" aria-hidden />
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-white/80">
-            We will map whether the leak is website visitors, inbound calls, or
-            both, then which product should go live first.
+            We will map whether the leak is website visitors, visibility online,
+            or follow-up — then which services should go live first.
           </p>
         </div>
       </section>
@@ -85,18 +100,17 @@ export default function CtaContact() {
                   ✓
                 </div>
                 <h2 className="mt-4 font-display text-xl font-semibold text-ink">
-                  Request noted in your browser
+                  Opening your email app
                 </h2>
                 <p className="mt-2 text-sm text-slate-dark">
-                  This form is not connected to a CRM yet. Email{" "}
+                  Your mail client should open with the details filled in to{" "}
                   <a
                     href={`mailto:${SITE.email}`}
                     className="text-accent underline"
                   >
                     {SITE.email}
-                  </a>{" "}
-                  with the same details so our team can follow up, or resubmit
-                  once the backend is live.
+                  </a>
+                  . If it does not, copy that address and send the same details.
                 </p>
               </div>
             ) : (
@@ -191,8 +205,8 @@ export default function CtaContact() {
                       What do you need?
                     </option>
                     <option value="sdr">AI Sales Development Representative</option>
-                    <option value="phone">AI Phone Receptionist</option>
-                    <option value="both">Both inbound products</option>
+                    <option value="growth">Marketing / SEO / AEO</option>
+                    <option value="both">Chat + growth services</option>
                     <option value="outbound">Inbound now, outbound later</option>
                   </select>
                 </div>

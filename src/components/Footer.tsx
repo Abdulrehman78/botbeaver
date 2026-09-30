@@ -12,11 +12,7 @@ export default function Footer() {
         <div className="grid min-w-0 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div>
             <Link href="/" className="inline-flex no-underline" aria-label={SITE.name}>
-              <BrandLogo
-                size="footer"
-                onDark
-                wordmarkClassName="text-white"
-              />
+              <BrandLogo size="footer" onDark />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-[#A8C4C0]">
               {SITE.footerBlurb}
@@ -56,8 +52,8 @@ export default function Footer() {
               <Link href="/process" className="text-sm text-[#A8C4C0] no-underline hover:text-white">
                 How it works
               </Link>
-              <Link href="/pricing" className="text-sm text-[#A8C4C0] no-underline hover:text-white">
-                Pricing
+              <Link href="/faq" className="text-sm text-[#A8C4C0] no-underline hover:text-white">
+                FAQ
               </Link>
               <Link href="/faq" className="text-sm text-[#A8C4C0] no-underline hover:text-white">
                 FAQ

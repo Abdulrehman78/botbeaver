@@ -13,27 +13,27 @@ export const metadata: Metadata = {
     template: `%s | ${SITE.name}`,
   },
   description:
-    "BotBeaver builds and maintains AI chat and phone agents so US businesses answer questions, qualify leads, and book meetings after hours.",
+    "BotBeaver builds and maintains AI chat agents and growth services (SEO, AEO, marketing) so US businesses answer leads and get found online.",
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/logo.svg" }],
-    shortcut: ["/icon.svg"],
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    apple: [{ url: "/icon.png" }],
+    shortcut: ["/icon.png"],
   },
   openGraph: {
     title: `${SITE.name} | AI lead capture for US teams`,
     description:
-      "AI Sales Development Representative for your website and AI Phone Receptionist for inbound calls.",
+      "AI Sales Development Representative for your website, plus marketing, SEO, and AEO growth services.",
     url: SITE.url,
     siteName: SITE.name,
     type: "website",
-    images: [{ url: "/logo.svg", width: 64, height: 64, alt: SITE.name }],
+    images: [{ url: "/logo.png", alt: SITE.name }],
   },
   twitter: {
     card: "summary",
     title: `${SITE.name} | AI lead capture for US teams`,
     description:
-      "AI chat and phone agents built and maintained for US service businesses.",
-    images: ["/logo.svg"],
+      "AI chat agents and growth services built and maintained for US service businesses.",
+    images: ["/logo.png"],
   },
   alternates: {
     canonical: SITE.url,
@@ -65,8 +65,8 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" href="/icon.svg?v=1" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/logo.svg?v=1" />
+        <link rel="icon" href="/icon.png?v=2" type="image/png" />
+        <link rel="apple-touch-icon" href="/icon.png?v=2" />
       </head>
       <body className="relative bg-bg text-text">
         <Nav />

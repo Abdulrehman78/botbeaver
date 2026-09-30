@@ -60,11 +60,7 @@ export default function Nav() {
             className="flex min-w-0 max-w-[70%] items-center no-underline sm:max-w-none"
             aria-label="BotBeaver home"
           >
-            <BrandLogo
-              size="nav"
-              onDark
-              wordmarkClassName="text-white"
-            />
+            <BrandLogo size="nav" onDark priority />
           </Link>
 
           <nav className="hidden min-w-0 lg:flex lg:justify-center" aria-label="Main navigation">

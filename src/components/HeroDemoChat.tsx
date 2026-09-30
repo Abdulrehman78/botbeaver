@@ -7,13 +7,13 @@ type Msg = { id: string; who: "user" | "bot" | "typing"; text: string };
 
 const SUGGESTIONS = [
   "What does BotBeaver do?",
-  "Can it answer phone calls?",
+  "Do you offer SEO and AEO?",
   "How fast can we go live?",
   "Which industries do you serve?",
 ];
 
 const WELCOME =
-  "Hi! I'm the BotBeaver demo agent. Want to see how I qualify a lead?";
+  "Hi! I'm the BotBeaver demo agent. Ask about website chat, SEO/AEO, or booking a demo.";
 
 function uid() {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
