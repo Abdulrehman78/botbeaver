@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://botbeaver.ai/sitemap.xml
+Host: https://botbeaver.ai
