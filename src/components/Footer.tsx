@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BrandLogo from "@/components/BrandLogo";
+import { BookDemoLink } from "@/components/BookDemoLink";
 import { LEGAL_LINKS } from "@/lib/legalContent";
 import { PRODUCT_LINKS, SITE } from "@/lib/siteContent";
 
@@ -55,12 +56,12 @@ export default function Footer() {
               <Link href="/faq" className="text-sm text-[#A8C4C0] no-underline hover:text-white">
                 FAQ
               </Link>
-              <Link href="/faq" className="text-sm text-[#A8C4C0] no-underline hover:text-white">
-                FAQ
-              </Link>
               <Link href="/contact" className="text-sm text-[#A8C4C0] no-underline hover:text-white">
-                Book a demo
+                Contact
               </Link>
+              <BookDemoLink className="text-sm text-[#A8C4C0] no-underline hover:text-white">
+                Book a meeting
+              </BookDemoLink>
             </div>
           </div>
 

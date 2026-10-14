@@ -46,9 +46,10 @@ export function hasAnalyticsConsent(): boolean {
   return getAnalyticsConsent() === "granted";
 }
 
-/** Show banner until the visitor chooses; honor GPC/DNT as deny without prompting again. */
+/** Show banner only when GA is configured; honor GPC/DNT as deny without prompting again. */
 export function shouldShowCookieNotice(): boolean {
   if (typeof window === "undefined") return false;
+  if (!isAnalyticsConfigured()) return false;
   if (prefersNoAnalytics()) {
     if (getAnalyticsConsent() === null) {
       setAnalyticsConsent("denied");

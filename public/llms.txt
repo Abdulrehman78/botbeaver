@@ -1,34 +1,27 @@
 # BotBeaver
 
-> BotBeaver LLC builds and maintains AI chat and phone agents for US service businesses.
+> BotBeaver builds and maintains AI chat agents plus growth services (marketing, SEO, AEO, and more) so US businesses answer leads and show up where buyers search.
 
 ## Product
+- Homepage: https://botbeaver.ai/
+- How it works: https://botbeaver.ai/process
+- Services: https://botbeaver.ai/services
+- FAQ: https://botbeaver.ai/faq
+- Contact: https://botbeaver.ai/contact
+- Book a meeting (Cal.com): https://cal.com/abdul-rehman/30min
 
-- AI Sales Development Representative for websites
-- AI Phone Receptionist for inbound calls
-- Optional outbound prospecting with consent controls
-
-## Key pages
-
-- https://botbeaver.com/
-- https://botbeaver.com/services
-- https://botbeaver.com/process
-- https://botbeaver.com/pricing
-- https://botbeaver.com/faq
-- https://botbeaver.com/contact
+## Services highlights
+- AI Sales Development Representative (website chat)
+- SEO, AEO, GEO, AIO
+- Web and mobile development
+- CRM, funnels, ads and social
 
 ## Legal
-
-- https://botbeaver.com/legal/privacy
-- https://botbeaver.com/legal/terms
-- https://botbeaver.com/legal/cookies
-- https://botbeaver.com/legal/refund
-- https://botbeaver.com/legal/acceptable-use
-- https://botbeaver.com/legal/dpa
-- https://botbeaver.com/legal/data-deletion
-- https://botbeaver.com/legal/security
+- Privacy: https://botbeaver.ai/legal/privacy
+- Terms: https://botbeaver.ai/legal/terms
+- Cookies: https://botbeaver.ai/legal/cookies
 
 ## Contact
-
-- hello@botbeaver.com
-- privacy@botbeaver.com
+- Sales: abbasqureshi@botbeaver.ai
+- Support: Support@botbeaver.ai
+- Privacy: privacy@botbeaver.ai

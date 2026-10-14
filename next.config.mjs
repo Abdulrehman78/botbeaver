@@ -4,17 +4,15 @@ const nextConfig = {
     unoptimized: true,
   },
   async redirects() {
+    const cal =
+      process.env.NEXT_PUBLIC_CAL_BOOKING_URL?.trim() ||
+      "https://cal.com/abdul-rehman/30min";
     return [
-      { source: "/crm", destination: "/services", permanent: true },
-      { source: "/case-studies", destination: "/", permanent: true },
-      { source: "/enterprise", destination: "/services", permanent: true },
-      { source: "/resources", destination: "/faq", permanent: true },
-      { source: "/about", destination: "/process", permanent: true },
-      { source: "/why", destination: "/process", permanent: true },
-      { source: "/values", destination: "/process", permanent: true },
-      { source: "/proof", destination: "/faq", permanent: true },
-      { source: "/see-it-work", destination: "/process", permanent: true },
-      { source: "/demo", destination: "/contact", permanent: true },
+      {
+        source: "/pricing",
+        destination: cal,
+        permanent: true,
+      },
     ];
   },
 };

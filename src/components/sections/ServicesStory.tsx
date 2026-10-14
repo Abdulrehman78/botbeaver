@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { GROWTH_SERVICES } from "@/lib/siteContent";
+import { ADDITIONAL_SERVICES, GROWTH_SERVICES } from "@/lib/siteContent";
 
 function OutcomeIcon({
   name,
@@ -127,9 +127,30 @@ export default function ServicesStory(): ReactElement {
         </div>
       </section>
 
+      <section id="additional" className="site-section border-t border-line">
+        <div className="site-wrap">
+          <p className="eyebrow-mark">02 · Additional services</p>
+          <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight text-sapphire sm:text-4xl">
+            SEO, AEO, development, and growth
+          </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-dark">
+            Beyond the AI SDR, we help you get found and convert — classic search,
+            answer engines, AI overviews, web and mobile development, CRM, and ads.
+          </p>
+          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {ADDITIONAL_SERVICES.map((s) => (
+              <article key={s.title} className="bb-card">
+                <h3 className="font-display text-sm font-semibold text-sapphire">{s.title}</h3>
+                <p className="mt-2 text-[13px] leading-relaxed text-slate-dark">{s.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="growth" className="site-section border-t border-line">
         <div className="site-wrap">
-          <p className="eyebrow-mark">02 · Growth services</p>
+          <p className="eyebrow-mark">03 · Full growth catalog</p>
           <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight text-sapphire sm:text-4xl">
             Marketing, SEO, AEO, and more
           </h2>

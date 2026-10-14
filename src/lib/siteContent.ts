@@ -3,6 +3,12 @@
  * Phone / AI calling is intentionally out of scope for now.
  */
 
+/** Same client Cal.com link as ArQonnect — override via Netlify env. */
+export const CAL_BOOKING_URL =
+  process.env.NEXT_PUBLIC_CAL_BOOKING_URL?.trim() ||
+  "https://cal.com/abdul-rehman/30min";
+
+/** Pricing plan cards are retired — quotes happen on the demo call. */
 export const SHOW_PRICING_PLANS = false;
 
 export const SITE = {
@@ -11,6 +17,7 @@ export const SITE = {
   tagline: "AI lead capture and growth for US teams",
   /** Demo booking / sales inbox */
   email: "abbasqureshi@botbeaver.ai",
+  supportEmail: "Support@botbeaver.ai",
   privacyEmail: "privacy@botbeaver.ai",
   location: "United States",
   formationState: "Delaware",
@@ -33,8 +40,12 @@ export const PRODUCT_LINKS = [
     label: "AI Sales Development Representative",
   },
   {
+    href: "/services#additional",
+    label: "SEO, AEO & Development",
+  },
+  {
     href: "/services#growth",
-    label: "Marketing, SEO & AEO",
+    label: "Full growth catalog",
   },
   {
     href: "/services#outbound",
@@ -48,8 +59,8 @@ export const HERO = {
   title: "Catch every lead",
   sub: "on your website — and get found online.",
   body: "We build and maintain an AI Sales Development Representative for your site, plus growth services like marketing, SEO, and AEO. Visitors get answers and booked meetings. Your team stays in control.",
-  primaryCta: { href: "/contact", label: "Book a demo" },
-  secondaryCta: { href: "/process", label: "How it works" },
+  primaryCta: { href: CAL_BOOKING_URL, label: "Book a meeting", external: true },
+  secondaryCta: { href: "/process", label: "How it works", external: false },
   stats: [
     { label: "Response", value: "Typically under 3s" },
     { label: "Coverage", value: "Nights and weekends" },
@@ -76,7 +87,46 @@ export const STATS = [
   },
 ] as const;
 
-/** Growth / digital services (aligned with ArQonnect catalog; no voice/calling). */
+/**
+ * Highlighted additional services (SEO, AEO, development, etc.).
+ * Shown as their own Services subsection on both sister brands.
+ */
+export const ADDITIONAL_SERVICES = [
+  {
+    title: "SEO",
+    body: "Classic search visibility so buyers find you on Google — technical fixes, content, and local/national strategy.",
+  },
+  {
+    title: "AEO",
+    body: "Answer Engine Optimization — structure content so assistants can extract and read it aloud with confidence.",
+  },
+  {
+    title: "GEO",
+    body: "Generative Engine Optimization — earn citations inside AI answers (ChatGPT, Gemini, Perplexity, and similar).",
+  },
+  {
+    title: "AIO",
+    body: "AI Overview readiness so you show up when search engines summarize the answer on the results page.",
+  },
+  {
+    title: "Web development",
+    body: "Sites, landing pages, and conversion paths built to feed your AI chat and CRM — not static brochure pages.",
+  },
+  {
+    title: "Mobile development",
+    body: "Native or hybrid apps when your offer needs a mobile surface connected to the same lead pipeline.",
+  },
+  {
+    title: "CRM & funnels",
+    body: "Organize leads, deals, and follow-ups so every chat booking lands somewhere your team can run.",
+  },
+  {
+    title: "Ads & social",
+    body: "Paid and organic social that sends traffic to pages your agent can close — campaign structure, creative, SMM.",
+  },
+] as const;
+
+/** Full growth catalog (aligned with ArQonnect; no voice/calling). */
 export const GROWTH_SERVICES = [
   { title: "CRM", body: "Organize leads and conversations in one place your team can run day to day." },
   { title: "Websites & funnels", body: "Landing pages and conversion paths wired to your AI chat and CRM." },
@@ -190,15 +240,15 @@ export const FAQ = {
 
 export const FINAL_CTA = {
   eyebrow: "Next step",
-  title: "Book a scoped demo",
+  title: "Book a scoped meeting",
   body: "Tell us where leads leak or where you need to show up online. We will recommend chat, growth services, or both, and walk through go-live timing.",
   bullets: [
-    "No credit card required",
+    "Opens Cal.com in a new tab",
     "Setup fee refundable if we miss the agreed 14-day go-live (see Refund Policy)",
     "We build it, train it, and maintain it",
   ],
-  primaryCta: { href: "/contact", label: "Book a demo" },
-  secondaryCta: { href: "/process", label: "How it works" },
+  primaryCta: { href: CAL_BOOKING_URL, label: "Book a meeting", external: true },
+  secondaryCta: { href: "/process", label: "How it works", external: false },
 } as const;
 
 export const COMPLIANCE_NOTE =

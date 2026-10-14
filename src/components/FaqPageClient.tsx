@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { BookDemoLink } from "@/components/BookDemoLink";
 import { FAQ } from "@/lib/siteContent";
 
 export default function FaqPageClient() {
@@ -56,17 +57,14 @@ export default function FaqPageClient() {
           </div>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <BookDemoLink className="inline-flex items-center justify-center rounded-sm bg-accent px-[22px] py-3 text-[15px] font-semibold text-white no-underline hover:bg-accent-dim">
+              Book a meeting
+            </BookDemoLink>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-sm bg-accent px-[22px] py-3 text-[15px] font-semibold text-white no-underline hover:bg-accent-dim"
-            >
-              Book a demo
-            </Link>
-            <Link
-              href="/pricing"
               className="inline-flex items-center justify-center rounded-sm border-[1.5px] border-sapphire px-[22px] py-3 text-[15px] font-semibold text-sapphire no-underline hover:bg-white"
             >
-              Pricing approach
+              Contact form
             </Link>
           </div>
         </div>

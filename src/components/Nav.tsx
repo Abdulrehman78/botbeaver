@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import BrandLogo from "@/components/BrandLogo";
+import { BookDemoLink } from "@/components/BookDemoLink";
 import { NAV_LINKS } from "@/lib/siteContent";
 
 function isActivePath(pathname: string, href: string): boolean {
@@ -42,8 +43,6 @@ export default function Nav() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [menuOpen]);
-
-  const contactActive = isActivePath(pathname, "/contact");
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 overflow-x-hidden">
@@ -88,15 +87,9 @@ export default function Nav() {
           </nav>
 
           <div className="flex items-center justify-end gap-2">
-            <Link
-              href="/contact"
-              aria-current={contactActive ? "page" : undefined}
-              className={`hidden items-center whitespace-nowrap rounded-md px-[18px] py-2 text-[14px] font-semibold text-white no-underline transition-colors sm:inline-flex ${
-                contactActive ? "bg-accent-dim" : "bg-accent hover:bg-accent-dim"
-              }`}
-            >
-              Book a demo
-            </Link>
+            <BookDemoLink className="hidden items-center whitespace-nowrap rounded-md bg-accent px-[18px] py-2 text-[14px] font-semibold text-white no-underline transition-colors hover:bg-accent-dim sm:inline-flex">
+              Book a meeting
+            </BookDemoLink>
 
             <button
               type="button"
@@ -148,13 +141,12 @@ export default function Nav() {
                 );
               })}
             </ul>
-            <Link
-              href="/contact"
+            <BookDemoLink
               className="mt-4 flex w-full items-center justify-center rounded-md bg-accent px-5 py-3 text-[15px] font-semibold text-white no-underline transition-colors hover:bg-accent-dim"
               onClick={() => setMenuOpen(false)}
             >
-              Book a demo
-            </Link>
+              Book a meeting
+            </BookDemoLink>
           </nav>
         </div>
       )}

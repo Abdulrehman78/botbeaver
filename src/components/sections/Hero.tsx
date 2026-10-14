@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import HeroDemoChat from "@/components/HeroDemoChat";
+import { BookDemoLink } from "@/components/BookDemoLink";
 import { HERO } from "@/lib/siteContent";
 
 export default function Hero(): React.ReactElement {
@@ -28,12 +29,9 @@ export default function Hero(): React.ReactElement {
               {HERO.body}
             </p>
             <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link
-                href={HERO.primaryCta.href}
-                className="inline-flex w-full items-center justify-center rounded-sm bg-accent px-[22px] py-3 text-[15px] font-semibold text-white no-underline hover:bg-accent-dim sm:w-auto"
-              >
+              <BookDemoLink className="inline-flex w-full items-center justify-center rounded-sm bg-accent px-[22px] py-3 text-[15px] font-semibold text-white no-underline hover:bg-accent-dim sm:w-auto">
                 {HERO.primaryCta.label}
-              </Link>
+              </BookDemoLink>
               <Link
                 href={HERO.secondaryCta.href}
                 className="inline-flex w-full items-center justify-center rounded-sm border-[1.5px] border-white px-[22px] py-3 text-[15px] font-semibold text-white no-underline hover:bg-white/10 sm:w-auto"

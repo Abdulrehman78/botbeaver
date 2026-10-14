@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import Link from "next/link";
+import { BookDemoLink } from "@/components/BookDemoLink";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 import {
   IconCalendar,
@@ -84,12 +84,9 @@ export default function Integrations(): ReactElement {
         </Stagger>
 
         <Reveal className="mt-8" delay={0.05}>
-          <Link
-            href="/contact"
-            className="inline-flex items-center rounded-sm bg-sapphire px-5 py-2.5 text-[15px] font-semibold text-white no-underline hover:bg-sapphire-deep"
-          >
-            Book a demo
-          </Link>
+          <BookDemoLink className="inline-flex items-center rounded-sm bg-sapphire px-5 py-2.5 text-[15px] font-semibold text-white no-underline hover:bg-sapphire-deep">
+            Book a meeting
+          </BookDemoLink>
         </Reveal>
       </div>
     </section>

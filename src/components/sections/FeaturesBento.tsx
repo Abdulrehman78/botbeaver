@@ -19,7 +19,7 @@ const products = [
     description:
       "Growth services so buyers find you — classic search, answer engines, funnels, social, and ads — wired to the same chat and CRM stack.",
     tags: "SEO · AEO · GEO · Funnels · SMM",
-    href: "/services#growth",
+    href: "/services#additional",
     Icon: IconChat,
   },
 ];

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BookDemoLink } from "@/components/BookDemoLink";
 import { FINAL_CTA } from "@/lib/siteContent";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -24,12 +25,9 @@ export default function HomeFinalCta() {
           <div className="relative flex flex-col justify-center gap-3 overflow-hidden bg-sapphire-deep px-6 py-8 sm:px-8 md:py-10">
             <div className="bb-hero-glow pointer-events-none absolute inset-0 opacity-70" aria-hidden />
             <div className="dam-grid dam-grid--fade pointer-events-none absolute inset-0" aria-hidden />
-            <Link
-              href={FINAL_CTA.primaryCta.href}
-              className="relative inline-flex items-center justify-center rounded-sm bg-accent px-[22px] py-3.5 text-center text-[15px] font-semibold text-white no-underline hover:bg-accent-dim"
-            >
+            <BookDemoLink className="relative inline-flex items-center justify-center rounded-sm bg-accent px-[22px] py-3.5 text-center text-[15px] font-semibold text-white no-underline hover:bg-accent-dim">
               {FINAL_CTA.primaryCta.label}
-            </Link>
+            </BookDemoLink>
             <Link
               href={FINAL_CTA.secondaryCta.href}
               className="relative inline-flex items-center justify-center rounded-sm border-[1.5px] border-white px-[22px] py-3.5 text-center text-[15px] font-semibold text-white no-underline hover:bg-white/10"

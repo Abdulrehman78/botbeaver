@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import { BookDemoLink } from "@/components/BookDemoLink";
 
 type Msg = { id: string; who: "user" | "bot" | "typing"; text: string };
 
@@ -193,9 +193,9 @@ export default function HeroDemoChat({
           </form>
           <p className="mt-2.5 text-center font-mono text-[10px] tracking-wide text-[#8FA3C4]">
             Demo agent ·{" "}
-            <Link href="/contact" className="text-accent no-underline hover:underline">
-              Book a demo
-            </Link>
+            <BookDemoLink className="text-accent no-underline hover:underline">
+              Book a meeting
+            </BookDemoLink>
           </p>
         </div>
       </div>

@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CookieNotice from "@/components/CookieNotice";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { SITE } from "@/lib/siteContent";
 
 export const metadata: Metadata = {
@@ -38,6 +39,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE.url,
   },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim()
+    ? {
+        verification: {
+          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION.trim(),
+        },
+      }
+    : {}),
 };
 
 export const viewport: Viewport = {
@@ -73,6 +81,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <CookieNotice />
+        <GoogleAnalytics />
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BookDemoLink } from "@/components/BookDemoLink";
 import { HOW_IT_WORKS } from "@/lib/siteContent";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 import {
@@ -76,17 +77,14 @@ export default function ProcessPage() {
           })}
         </Stagger>
         <Reveal className="site-wrap mt-10 flex flex-col gap-3 sm:flex-row">
+          <BookDemoLink className="inline-flex items-center justify-center rounded-sm bg-accent px-[22px] py-3 text-[15px] font-semibold text-white no-underline hover:bg-accent-dim">
+            Book a meeting
+          </BookDemoLink>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center rounded-sm bg-accent px-[22px] py-3 text-[15px] font-semibold text-white no-underline hover:bg-accent-dim"
-          >
-            Book a demo
-          </Link>
-          <Link
-            href="/pricing"
             className="inline-flex items-center justify-center rounded-sm border-[1.5px] border-sapphire px-[22px] py-3 text-[15px] font-semibold text-sapphire no-underline hover:bg-white"
           >
-            See pricing approach
+            Prefer a written brief
           </Link>
         </Reveal>
       </section>

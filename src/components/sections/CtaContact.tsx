@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import Link from "next/link";
+import { BookDemoLink } from "@/components/BookDemoLink";
 import { COMPLIANCE_NOTE, SITE } from "@/lib/siteContent";
 
 const verticals = [
@@ -51,7 +52,7 @@ export default function CtaContact() {
         <div className="dam-grid dam-grid--hero pointer-events-none absolute inset-0" aria-hidden />
         <div className="site-wrap relative z-10 pb-14 pt-10 md:pb-16 md:pt-12">
           <p className="eyebrow-mark mb-8 border-b border-white/15 pb-3 text-[#8FA3C4]">
-            Book a demo
+            Book a meeting
           </p>
           <h1 className="banner-heading max-w-2xl text-[2rem] leading-[1.08] sm:text-5xl">
             Tell us where leads leak
@@ -64,6 +65,9 @@ export default function CtaContact() {
             We will map whether the leak is website visitors, visibility online,
             or follow-up — then which services should go live first.
           </p>
+          <BookDemoLink className="mt-8 inline-flex items-center justify-center rounded-sm bg-accent px-[22px] py-3 text-[15px] font-semibold text-white no-underline hover:bg-accent-dim">
+            Open Cal.com booking →
+          </BookDemoLink>
         </div>
       </section>
 

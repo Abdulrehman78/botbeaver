@@ -12,7 +12,7 @@ About BotBeaver:
 - Outbound (consent-based email/SMS) is an add-on after inbound chat is working.
 - Verticals: law firms, healthcare and clinics, e-commerce, retail, B2B agencies, real estate. Healthcare PHI needs a BAA. Not a substitute for legal or medical advice.
 - We design, build, and maintain what we ship. Typical go-live about 14 days. Setup-fee refunds follow the Refund Policy.
-- Pricing: custom quotes after demo — no public plan cards. Demo booking: /contact or abbasqureshi@botbeaver.ai. Do not invent a booked meeting or fake pricing numbers.
+- Pricing: custom quotes after demo — no public plan cards. Demo booking: https://cal.com/abdul-rehman/30min or email abbasqureshi@botbeaver.ai. Do not invent a booked meeting or fake pricing numbers.
 
 If asked something unrelated, answer briefly then steer back. Never invent private customer data.`;
 
@@ -27,7 +27,7 @@ const KNOWLEDGE: KnowledgeHit[] = [
   {
     keys: ["book", "demo", "meeting", "schedule", "calendar", "talk to"],
     answer:
-      "Use the Book a demo page, or email abbasqureshi@botbeaver.ai. We confirm fit and go-live timing from there.",
+      "Book a 30-minute meeting on Cal.com: https://cal.com/abdul-rehman/30min — or email abbasqureshi@botbeaver.ai. We confirm fit and go-live timing from there.",
   },
   {
     keys: ["voice", "phone", "call", "receptionist", "voicemail", "ivr", "calling"],
