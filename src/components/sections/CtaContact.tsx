@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import Link from "next/link";
 import { BookDemoLink } from "@/components/BookDemoLink";
+import { trackFormStart, trackFormSubmit } from "@/lib/analytics";
 import { COMPLIANCE_NOTE, SITE } from "@/lib/siteContent";
 
 const verticals = [
@@ -41,6 +42,7 @@ export default function CtaContact() {
         `Interest: ${product || "—"}`,
       ].join("\n")
     );
+    trackFormSubmit("contact_mailto");
     window.location.href = `mailto:${SITE.email}?subject=${subject}&body=${body}`;
     setSubmitted(true);
   }
@@ -65,7 +67,10 @@ export default function CtaContact() {
             We will map whether the leak is website visitors, visibility online,
             or follow-up — then which services should go live first.
           </p>
-          <BookDemoLink className="mt-8 inline-flex items-center justify-center rounded-sm bg-accent px-[22px] py-3 text-[15px] font-semibold text-white no-underline hover:bg-accent-dim">
+          <BookDemoLink
+            source="contact_hero"
+            className="mt-8 inline-flex items-center justify-center rounded-sm bg-accent px-[22px] py-3 text-[15px] font-semibold text-white no-underline hover:bg-accent-dim"
+          >
             Open Cal.com booking →
           </BookDemoLink>
         </div>
@@ -118,7 +123,11 @@ export default function CtaContact() {
                 </p>
               </div>
             ) : (
-              <form className="space-y-4" onSubmit={onSubmit}>
+              <form
+                className="space-y-4"
+                onSubmit={onSubmit}
+                onFocus={() => trackFormStart("contact_mailto")}
+              >
                 <div>
                   <label
                     htmlFor="contact-name"

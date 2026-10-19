@@ -46,11 +46,17 @@ export default function FaqPageClient() {
                       {isOpen ? "−" : "+"}
                     </span>
                   </button>
-                  {isOpen ? (
-                    <div className="border-t border-line px-5 pb-5 pt-3 text-sm leading-relaxed text-slate-dark sm:px-6">
-                      {item.a}
-                    </div>
-                  ) : null}
+                  {/* Keep answers in HTML for crawlers even when collapsed. */}
+                  <div
+                    className={
+                      isOpen
+                        ? "border-t border-line px-5 pb-5 pt-3 text-sm leading-relaxed text-slate-dark sm:px-6"
+                        : "sr-only"
+                    }
+                    aria-hidden={!isOpen}
+                  >
+                    {item.a}
+                  </div>
                 </div>
               );
             })}

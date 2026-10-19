@@ -3,25 +3,34 @@
 > BotBeaver builds and maintains AI chat agents plus growth services (marketing, SEO, AEO, and more) so US businesses answer leads and show up where buyers search.
 
 ## Product
-- Homepage: https://botbeaver.ai/
-- How it works: https://botbeaver.ai/process
-- Services: https://botbeaver.ai/services
-- FAQ: https://botbeaver.ai/faq
-- Contact: https://botbeaver.ai/contact
-- Book a meeting (Cal.com): https://cal.com/abdul-rehman/30min
+
+- [Homepage](https://botbeaver.ai/): AI lead capture and growth for US service businesses
+- [How it works](https://botbeaver.ai/process): Implementation and go-live process
+- [Services](https://botbeaver.ai/services): AI SDR, marketing, SEO, AEO, and related services
+- [FAQ](https://botbeaver.ai/faq): Buyer questions on chat, go-live, and outbound rules
+- [Contact](https://botbeaver.ai/contact): Lead capture and meeting request
+- [Book a meeting](https://cal.com/abdul-rehman/30min): 30-minute Cal.com consultation
 
 ## Services highlights
+
 - AI Sales Development Representative (website chat)
 - SEO, AEO, GEO, AIO
 - Web and mobile development
 - CRM, funnels, ads and social
 
 ## Legal
-- Privacy: https://botbeaver.ai/legal/privacy
-- Terms: https://botbeaver.ai/legal/terms
-- Cookies: https://botbeaver.ai/legal/cookies
+
+- [Privacy Policy](https://botbeaver.ai/legal/privacy)
+- [Terms of Service](https://botbeaver.ai/legal/terms)
+- [Cookie Policy](https://botbeaver.ai/legal/cookies)
+- [Security](https://botbeaver.ai/legal/security)
+- [Refund Policy](https://botbeaver.ai/legal/refund)
+- [Acceptable Use](https://botbeaver.ai/legal/acceptable-use)
+- [Data Processing Agreement](https://botbeaver.ai/legal/dpa)
+- [Data Deletion](https://botbeaver.ai/legal/data-deletion)
 
 ## Contact
+
 - Sales: abbasqureshi@botbeaver.ai
 - Support: Support@botbeaver.ai
 - Privacy: privacy@botbeaver.ai

@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   title: "How it works",
   description:
     "How BotBeaver maps your lead leak, trains AI chat agents on your approved knowledge, and targets go-live in about 14 days.",
+  alternates: { canonical: "/process" },
 };
 
 const STEP_ICONS = [

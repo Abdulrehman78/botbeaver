@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CookieNotice from "@/components/CookieNotice";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import JsonLd from "@/components/JsonLd";
 import { SITE } from "@/lib/siteContent";
 
 export const metadata: Metadata = {
@@ -36,9 +37,7 @@ export const metadata: Metadata = {
       "AI chat agents and growth services built and maintained for US service businesses.",
     images: ["/logo.png"],
   },
-  alternates: {
-    canonical: SITE.url,
-  },
+  // Self-referencing canonicals are set per page. Do not default all routes to "/".
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim()
     ? {
         verification: {
@@ -75,6 +74,7 @@ export default function RootLayout({
         />
         <link rel="icon" href="/icon.png?v=2" type="image/png" />
         <link rel="apple-touch-icon" href="/icon.png?v=2" />
+        <JsonLd />
       </head>
       <body className="relative bg-bg text-text">
         <Nav />

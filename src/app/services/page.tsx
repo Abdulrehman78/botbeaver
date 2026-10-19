@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Services — AI SDR, Marketing, SEO & AEO",
   description:
     "BotBeaver's AI Sales Development Representative for your website, plus growth services: marketing, SEO, AEO, GEO, funnels, and more. No AI phone agents for now.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {
